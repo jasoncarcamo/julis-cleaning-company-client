@@ -1,23 +1,28 @@
 import React from "react";
 import "./FirstSection.css";
+import Pillows from "../../../assets/images/pillows.jpg";
 
 export default class FirstSection extends React.Component{
 
     render(){
 
         return(
-            <section>
-                <section>
-                    <h2>Tidy Space.</h2>
-                    <h2>Happy Mind.</h2>
+            <section id="first-section">
+                <section id="first-section-header">
+                    <div>
+                        <h2>Tidy Space.</h2>
+                        <h2>Happy Mind.</h2>
 
-                    <p>Let Us Work While You Unwind</p>
+                        <p>Let Us Work While You Unwind</p>
 
-                    <button>Get Started</button>
+                        <button id="get-started-btn">Get Started</button>
+                    </div>
                 </section>
 
                 <section>
-
+                    <img id="pillows-img" src={Pillows} alt="Pillows" style={{
+                        width: "10em"
+                    }}/>
                 </section>
             </section>
         )

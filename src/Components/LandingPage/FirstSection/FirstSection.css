@@ -1,4 +1,55 @@
 #first-section{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 4.5em;
+}
+
+#first-section > section{
+    width: 50%;
+    min-height: 40em;
     margin: 0;
     padding: 0;
+}
+
+#first-section-header{
+    background-color: #F6CECE;
+}
+
+#first-section-header div{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 0 0 4em;
+}
+
+#first-section-header h2{
+    width: 80%;
+    font-size: 3.5em;
+    line-height: .6em;
+    color: white;
+}
+
+#first-section-header p{
+    color: white;
+    margin: 1.2em 0 0 0;
+}
+
+#get-started-btn{
+    margin: 6em 0 0 0;
+    padding: 1em 1.6em;
+    border: .07em solid black;
+    background-color: white;
+}
+
+#get-started-btn:hover{
+    border: .07em solid white;
+    background-color: black;
+    color: white;
+}
+
+#pillows-img{
+    min-width: 100%;
+    min-height: 100%;
 }

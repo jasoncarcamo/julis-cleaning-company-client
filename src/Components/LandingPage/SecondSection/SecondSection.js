@@ -6,7 +6,7 @@ export default class SecondSection extends React.Component{
     render(){
 
         return(
-            <section>
+            <section id="second-section">
                 <h3>Our Mindset</h3>
                 <h4>Treat Yourself To A Clean Healthy Home</h4>
 
@@ -14,7 +14,7 @@ export default class SecondSection extends React.Component{
 
                 <p>Our experts provide detailed cleaning services for our valued customers, designed to keep your property looking its best all year round. We offer different cleaning frequencies according to your needs and preferences, including every week, every two weeks, monthly, and occasional or one-time cleans.</p>
 
-                <button>Contact Us</button>
+                <button id="second-section-contact-btn">Contact Us</button>
             </section>
         )
     }
