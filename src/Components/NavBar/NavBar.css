@@ -1,0 +1,299 @@
+header{
+    width: 100%;
+    height: 7.5em;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-bar{
+    display: flex;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: auto;
+    padding: 0 3em;
+}
+
+#nav-burger{
+    display: none;
+}
+
+#nav-bar > section{
+    display: flex;
+    margin: auto 0;
+    padding: 0;
+}
+
+#brand-container{
+    margin: auto 0 auto 0;
+    width: 30%;
+    min-height: 4.65em;
+    padding: 0;
+}
+
+#nav-bar-icon{
+    width: 3em;
+    height: 3em;
+    padding: 0;
+    margin: auto 0 auto .7em;
+}
+
+#nav-bar-icon *{
+    margin: .1em 0 0 0;
+    padding: 0;
+    font-size: 2.5em;
+}
+
+#nav-bar-header{
+    margin: auto 0 auto .8em;
+    padding: 0;
+}
+
+#nav-bar-header h1{
+    font-size: 1.3em;
+    margin: 0;
+    padding: 0;
+    color: rgb(51, 51, 51);
+}
+
+#nav-bar-header p{
+    font-size: .83em;
+    margin: 0;
+    padding: 0;
+    color: rgb(51, 51, 51);
+}
+
+#nav-bar-second-sect{
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    min-height: 4.65em;
+    margin: auto;
+    padding: 0;
+}
+
+#nav-bar-second-sect > section{
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    min-height: 4.65em;
+    margin: auto 1em auto 0;
+    padding: 0;
+}
+
+#nav-links{
+    display: flex;
+    margin: auto 0 auto auto;
+    padding-left: 5em;
+    justify-content: flex-end;
+}
+
+#nav-links li{
+    margin: auto 0;
+    padding: 0 1em;
+    font-size: .83em;
+}
+
+#nav-links *{
+    color: rgb(51, 51, 51);
+    margin: 0;
+    padding: 0;
+}
+
+
+#nav-bar-account{
+    margin: auto 0 auto 2.5em;
+    padding: 0;
+    cursor: pointer;
+}
+
+#nav-bar-account:hover .nav-bar-user-icon-btn{
+    color: lightskyblue;
+}
+
+#nav-bar-user-icon{
+    display: flex;
+}
+
+.nav-bar-user-icon-profile{
+    font-size: 1.1em;
+}
+
+.nav-bar-user-icon-btn{
+    font-size: 1.1em;
+    margin: 0 .4em;
+}
+
+#nav-bar-account-options{
+    display: none;
+}
+
+#social-bar{
+    display: flex;
+    padding: 0;
+    margin: auto 0 auto 1.25em;
+}
+
+#social-bar li{
+    margin: auto .5em;
+    padding: 0;
+}
+
+.social-bar-icon{
+    font-size: .9em;
+    cursor: pointer;
+}
+
+#nav-bar-account-options{
+
+}
+
+@media screen and (max-width:770px){
+    header{
+        min-height: 9em;
+    }
+    
+    #nav-bar{
+        display: flex;
+        position: relative;
+        left: 0;
+        flex-direction: column;
+        padding: 0;
+        height: 100%;
+    }
+
+    #nav-burger{
+        display: block;
+        position: absolute;
+        top: 50%; 
+        right: 1em;
+        z-index: 4;
+        transform: translateY(-50%);
+    }
+    #brand-container{
+        width: 60%;
+        min-height: 4.65em;
+        padding-top: 1em !important;
+    }
+
+    #nav-bar-icon{
+        margin-left: 2em;
+    }
+    
+    #nav-bar-header{
+        margin: auto 0 auto .8em;
+        padding: 0;
+    }
+    
+    #nav-bar-header h1{
+        font-size: 1.1em;
+        margin: 0;
+        padding: 0;
+        color: rgb(51, 51, 51);
+    }
+    
+    #nav-bar-header p{
+        font-size: .75em;
+        margin: 0;
+        padding: 0;
+        color: rgb(51, 51, 51);
+    }
+    
+    #nav-bar-second-sect{
+        display: flex;
+        justify-content: flex-end;
+        width: 70%;
+        min-height: 4.65em;
+        margin: auto;
+        padding: 0;
+    }
+
+    #nav-bar-second-sect > section{
+        flex-direction: column-reverse;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        transform: translateX(100%);
+    }
+
+    .display-nav-bar{
+        transform: translateX(0) !important;
+        animation: showNavBar .5s ease-in;
+    }
+
+    .hide-nav-bar{
+        transform: translateX(100%) !important;
+        animation: hideNavBar .3s ease-out;
+    }
+
+    @keyframes showNavBar{
+        from{
+            transform: translateX(100%);
+        }
+
+        to{
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes hideNavBar{
+        from{
+            display: flex;
+            transform: translateX(0);
+        }
+
+        to{
+            display: flex;
+            transform: translateX(100%);
+        }
+    }
+    
+    #nav-links{
+        display: block;
+        margin: 1em auto auto auto;
+        padding: 0;
+        justify-content: flex-end;
+    }
+    
+    #nav-links li{
+        margin: 3em auto;
+        text-align: center;
+        padding: 0 1em;
+        font-size: 1em;
+    }
+
+    #nav-bar-account{
+        display: block;
+        margin: auto auto 1em auto;
+        padding: 0;
+    }
+    
+    .nav-bar-user-icon-profile{
+        font-size: 1.4em;
+    }
+    
+    .nav-bar-user-icon-btn{
+        font-size: 1.4em;
+        margin: 0 .4em;
+    }
+    
+    #nav-bar-account-options{
+        display: none;
+    }
+    
+    #social-bar{
+        display: flex;
+        padding: 0;
+        margin: 1em auto 0 1.5em;
+    }
+    
+    .social-bar-icon{
+        font-size: 1em;
+    }
+}
