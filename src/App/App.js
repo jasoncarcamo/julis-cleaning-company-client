@@ -5,12 +5,16 @@ import {Route} from "react-router-dom";
 
 //Routes
 import NavBar from "../Components/NavBar/NavBar";
+import LandingPage from "../Components/LandingPage/LandingPage";
+import Footer from "../Components/Footer/Footer";
 
 class App extends React.Component {
     render(){
         return (
             <>
                 <Route path="/" component={NavBar}></Route>
+                <Route exact path="/" component={LandingPage}></Route>
+                <Route path="/" component={Footer}></Route>
             </>
         );
     }

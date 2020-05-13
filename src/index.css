@@ -25,6 +25,10 @@ code {
     font-family: sans-serif;
 }
 
+#root > section{
+    margin-top: 3em;
+}
+
 button{
     outline: none;
     cursor: pointer;
