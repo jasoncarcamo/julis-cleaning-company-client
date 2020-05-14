@@ -2,7 +2,43 @@ header{
     width: 100%;
     height: 7.5em;
     margin: 0;
-    padding: 0;
+    padding: 0;    
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    transform: translateY(0);
+    z-index: 1;
+}
+
+.hide-header{
+    transform: translateY(-100%);
+    animation: hideHeader 1s ease-out;
+}
+
+.show-header{
+    transform: translateY(0);
+    animation: showHeader .3s ease-in;
+}
+
+@keyframes hideHeader {
+    from{
+        transform: translateY(0);
+    }
+
+    to{
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes showHeader {
+    from{
+        transform: translateY(-100%);
+    }
+
+    to{
+        transform: translateY(0);
+    }
 }
 
 #nav-bar{
@@ -90,7 +126,7 @@ header{
 }
 
 #nav-links li{
-    margin: auto 0;
+    margin: auto -.3em;
     padding: 0 1em;
     font-size: .83em;
 }
@@ -106,6 +142,8 @@ header{
     margin: auto 0 auto 2.5em;
     padding: 0;
     cursor: pointer;
+    position: relative;
+    z-index: 4;
 }
 
 #nav-bar-account:hover .nav-bar-user-icon-btn{
@@ -116,22 +154,67 @@ header{
     display: flex;
 }
 
-.nav-bar-user-icon-profile{
-    width: 3em;
-    font-size: 1.5em;
-    color: white;
+#nav-bar-user-icon div{
+    margin: 0;
+    padding: .07em 0 0 0;
     background-color: black;
     border-radius: 100%;
     border: .1em solid black;
 }
 
+.nav-bar-user-icon-profile{
+    width: 1.1em !important;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+    color: white;
+    border-radius: 100%;
+}
+
 .nav-bar-user-icon-btn{
     font-size: 1.1em;
-    margin: 0 .4em;
+    margin: auto .4em;
+    padding: 0;
 }
 
 #nav-bar-account-options{
     display: none;
+    flex-direction: column;
+    top: 1.6em;
+    left: 50%;
+    position: absolute;
+    z-index: 4;
+    width: 8em;
+    border: .05em solid black;
+    transform: translateX(-50%);
+    background-color: white;
+}
+
+.show-account-options{
+    display: flex !important;
+}
+
+#nav-bar-account-options ul{
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar-account-opt{
+    padding: .5em 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav-bar-account-opt *{
+    color: black;
+}
+
+.nav-bar-account-opt:hover{
+    background-color: black;
+}
+
+.nav-bar-account-opt:hover *{
+    color: white;
 }
 
 #social-bar{
@@ -150,49 +233,9 @@ header{
     cursor: pointer;
 }
 
-#nav-bar-account-options{
-
-}
-
 @media screen and (max-width:770px){
     header{
         min-height: 9em;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: white;
-        transform: translateY(0);
-        z-index: 1;
-    }
-
-    .hide-header{
-        transform: translateY(-100%);
-        animation: hideHeader 1s ease-out;
-    }
-
-    .show-header{
-        transform: translateY(0);
-        animation: showHeader .3s ease-in;
-    }
-
-    @keyframes hideHeader {
-        from{
-            transform: translateY(0);
-        }
-
-        to{
-            transform: translateY(-100%);
-        }
-    }
-
-    @keyframes showHeader {
-        from{
-            transform: translateY(-100%);
-        }
-
-        to{
-            transform: translateY(0);
-        }
     }
     
     #nav-bar{
@@ -322,10 +365,6 @@ header{
     .nav-bar-user-icon-btn{
         font-size: 1.4em;
         margin: 0 .4em;
-    }
-    
-    #nav-bar-account-options{
-        display: none;
     }
     
     #social-bar{

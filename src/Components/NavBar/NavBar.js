@@ -23,6 +23,7 @@ export default class NavBar extends React.Component{
         })
 
         this.mobileNavBarHandler();
+        this.handleAccountOptions();
     }
 
     handleMenuBurger = (e)=>{
@@ -44,17 +45,31 @@ export default class NavBar extends React.Component{
         };
     }
 
+    handleAccountOptions = ()=>{
+        const accountSection = document.getElementById("nav-bar-account");
+        const accountOptions = document.getElementById("nav-bar-account-options");
+
+        accountSection.addEventListener("mouseenter", (e)=>{
+            accountOptions.classList.add("show-account-options");
+        });
+
+        accountSection.addEventListener("mouseleave", (e)=>{
+            accountOptions.classList.remove("show-account-options");
+        });
+    }
+
     mobileNavBarHandler = (e)=>{
         const header = document.getElementsByTagName("header");
+        const navLinks = document.querySelector("#nav-bar-second-sect > section")
+
+        navLinks.addEventListener("touchmove", (e)=>{
+            e.preventDefault();
+        })
         
         let prevYOffset = window.pageYOffset;
 
         window.addEventListener("scroll", (e)=>{
             let currentYOffset = window.pageYOffset;
-            
-            if(this.state.screenWidth > 770){
-                return;
-            }
 
             if(currentYOffset < prevYOffset){
                 header[0].classList.add("show-header");
@@ -121,9 +136,22 @@ export default class NavBar extends React.Component{
                                 </section>
                                 
                                 <section id="nav-bar-account-options">
-                                    <NavLink to="/user/bookings">My Bookings</NavLink>
+                                    <ul>
+                                        <li className="nav-bar-account-opt">
+                                            <NavLink to="/user/bookings">My Bookings</NavLink>
+                                        </li>
 
-                                    <NavLink to="/user/account">My Account</NavLink>
+                                        <li className="nav-bar-account-opt">
+                                            <NavLink to="/user/account">My Account</NavLink>
+                                        </li>
+
+                                        <li className="nav-bar-account-opt" style={{
+                                            borderTop: ".07em solid lightgrey"
+                                        }}>
+                                            <NavLink to="/">Log off</NavLink>
+                                        </li>
+                                    </ul>
+                                    
                                 </section>
                             </section>
                         </section>

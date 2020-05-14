@@ -21,12 +21,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: sans-serif;
+#root > section{
+    margin-top: 7.5em;
 }
 
-#root > section{
-    margin-top: 9em;
+code {
+    font-family: sans-serif;
 }
 
 button{
@@ -49,5 +49,9 @@ a{
 @media screen and (max-width: 770px){
     body{
         font-size: 16px;
+    }
+
+    #root > section{
+        margin-top: 9em;
     }
 }
