@@ -16,7 +16,7 @@ body {
     padding: 0 0 4em 0;
     overflow: hidden;
     font-size: 18px;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Playfair Display', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
