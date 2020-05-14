@@ -7,6 +7,7 @@ import {Route} from "react-router-dom";
 import NavBar from "../Components/NavBar/NavBar";
 import LandingPage from "../Components/LandingPage/LandingPage";
 import About from "../Components/About/About";
+import Contact from "../Components/Contact/Contact";
 import Footer from "../Components/Footer/Footer";
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
                 <Route path="/" component={NavBar}></Route>
                 <Route exact path="/" component={LandingPage}></Route>
                 <Route exact path="/about" component={About}></Route>
+                <Route exact path="/contact" component={Contact}></Route>
                 <Route path="/" component={Footer}></Route>
             </>
         );

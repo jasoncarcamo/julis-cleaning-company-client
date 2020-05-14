@@ -157,6 +157,42 @@ header{
 @media screen and (max-width:770px){
     header{
         min-height: 9em;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: white;
+        transform: translateY(0);
+        z-index: 1;
+    }
+
+    .hide-header{
+        transform: translateY(-100%);
+        animation: hideHeader 1s ease-out;
+    }
+
+    .show-header{
+        transform: translateY(0);
+        animation: showHeader .3s ease-in;
+    }
+
+    @keyframes hideHeader {
+        from{
+            transform: translateY(0);
+        }
+
+        to{
+            transform: translateY(-100%);
+        }
+    }
+
+    @keyframes showHeader {
+        from{
+            transform: translateY(-100%);
+        }
+
+        to{
+            transform: translateY(0);
+        }
     }
     
     #nav-bar{

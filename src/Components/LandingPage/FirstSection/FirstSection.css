@@ -19,7 +19,7 @@
 
 #first-section-header div{
     position: relative;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     padding: 0 0 0 4em;
 }
@@ -62,6 +62,7 @@
         min-height: 100vh;
         margin: 0;
         padding: 0;
+        background-color: #F6CECE;
     }
     
     #first-section > section{
@@ -76,6 +77,7 @@
     }
     
     #first-section-header div{
+        top: 50%;
         transform: translateY(0);
         padding: 0;
         margin: 3em 0;

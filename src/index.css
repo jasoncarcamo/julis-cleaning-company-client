@@ -26,6 +26,7 @@ code {
 }
 
 #root > section{
+    margin-top: 9em;
 }
 
 button{

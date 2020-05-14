@@ -10,7 +10,8 @@ export default class NavBar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            screenWidth: window.innerWidth
+            screenWidth: window.innerWidth,
+            pageYoffset: window.pageYOffset
         }
     }
 
@@ -20,6 +21,8 @@ export default class NavBar extends React.Component{
                 screenWidth: window.innerWidth
             })
         })
+
+        this.mobileNavBarHandler();
     }
 
     handleMenuBurger = (e)=>{
@@ -39,6 +42,30 @@ export default class NavBar extends React.Component{
             navSection.classList.remove("display-nav-bar");
             navSection.classList.add("hide-nav-bar");
         };
+    }
+
+    mobileNavBarHandler = (e)=>{
+        const header = document.getElementsByTagName("header");
+        
+        let prevYOffset = window.pageYOffset;
+
+        window.addEventListener("scroll", (e)=>{
+            let currentYOffset = window.pageYOffset;
+            
+            if(this.state.screenWidth > 770){
+                return;
+            }
+
+            if(currentYOffset < prevYOffset){
+                header[0].classList.add("show-header");
+                header[0].classList.remove("hide-header");
+            } else{
+                header[0].classList.remove("show-header");
+                header[0].classList.add("hide-header");
+            }
+
+            prevYOffset = currentYOffset;
+        })
     }
 
     render(){
