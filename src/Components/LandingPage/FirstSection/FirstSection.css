@@ -53,3 +53,64 @@
     min-width: 100%;
     min-height: 100%;
 }
+
+@media screen and (max-width: 770px){
+    #first-section{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #first-section > section{
+        width: 100%;
+        min-height: 25vh;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #first-section-header{
+        background-color: #F6CECE;
+    }
+    
+    #first-section-header div{
+        transform: translateY(0);
+        padding: 0;
+        margin: 3em 0;
+        text-align: center;
+    }
+    
+    #first-section-header h2{
+        width: 100%;
+        font-size: 2.5em;
+        line-height: 1em;
+        color: white;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    #first-section-header p{
+        color: white;
+        margin: 1.2em 0 0 0;
+    }
+    
+    #get-started-btn{
+        margin: 6em 0 0 0;
+        padding: 1em 1.6em;
+        border: .07em solid black;
+        background-color: white;
+    }
+    
+    #get-started-btn:hover{
+        border: .07em solid white;
+        background-color: black;
+        color: white;
+    }
+    
+    #pillows-img{
+        width: 100%;
+        min-height: 50vh ;
+    }
+}

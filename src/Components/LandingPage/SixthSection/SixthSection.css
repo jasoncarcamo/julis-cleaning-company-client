@@ -1,4 +1,156 @@
 #sixth-section{
     margin: 0;
+    padding: 0 4em;
+    min-height: 60vh;
+}
+
+#sixth-section h3{
+    margin: 4em auto 3em auto;
+    text-align: center;
+    font-size: 2.2em;
+    width: 50%;
+}
+
+#sixth-section form{
+    margin: 0;
     padding: 0;
+}
+
+#sixth-section fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#sixth-section label{
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    width: 70%;
+}
+
+#sixth-section div{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#sixth-section-email{
+    height: 4em;
+    width: 55em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: .05 solid black;
+    transition: border .3s ease;
+    border-radius: .1em;
+}
+
+#sixth-section-email:hover{
+    border-bottom: .3em solid black;
+}
+
+#sixth-section-email:focus{
+    border-bottom: .3em solid black;
+}
+
+#sixth-section-submit{
+    display: block;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    width: 10em;
+    height: 4em;
+    padding: .5em 1.7em;
+    margin: 0 0 0 1em;
+    background-color: black;
+    border: .1em solid white;
+    color: white;
+}
+
+#sixth-section-submit:hover{
+    background-color: white;
+    border: .1em solid black;
+    color: black;
+}
+
+@media screen and (max-width: 770px){
+    #sixth-section{
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+    }
+    
+    #sixth-section h3{
+        margin: 4em auto 1.5em auto;
+        text-align: center;
+        font-size: 1.4em;
+        width: 100%;
+    }
+    
+    #sixth-section form{
+        margin: 0;
+        padding: 0;
+    }
+    
+    #sixth-section fieldset{
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    
+    #sixth-section label{
+        display: block;
+        margin: 2em auto 0 auto;
+        padding: 0;
+        width: 90%;
+    }
+    
+    #sixth-section div{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    #sixth-section-email{
+        height: 4em;
+        width: 90%;
+        margin: 0 auto;
+        padding-left: 2em;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: .05 solid black;
+        transition: border .3s ease;
+        border-radius: .1em;
+    }
+    
+    #sixth-section-email:hover{
+        border-bottom: .3em solid black;
+    }
+    
+    #sixth-section-email:focus{
+        border-bottom: .3em solid black;
+    }
+    
+    #sixth-section-submit{
+        display: block;
+        position: static;
+        width: 10em;
+        height: 4em;
+        padding: .5em 1.7em;
+        margin: 1em auto 6em auto;
+        background-color: black;
+        border: .1em solid white;
+        color: white;
+    }
+    
+    #sixth-section-submit:hover{
+        background-color: white;
+        border: .1em solid black;
+        color: black;
+    }
 }
