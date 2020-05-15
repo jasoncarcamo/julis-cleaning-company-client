@@ -34,14 +34,21 @@ export default class User extends React.Component{
                     <ul id="user-section-opt-list-container">
                         <li className="user-section-opt">
                             <NavLink 
-                                to="/user">
+                                exact to="/user"
+                                activeStyle={{
+                                    color: "rgb(137, 196, 242)"
+                                }}>
                                 My Account
                             </NavLink>
                         </li>
 
                         <li className="user-section-opt">
                             <NavLink 
-                                to="/user/my-bookings">
+                                exact
+                                to="/user/my-bookings"
+                                activeStyle={{
+                                    color: "rgb(137, 196, 242)"
+                                }}>
                                 My Bookings
                             </NavLink>
                         </li>

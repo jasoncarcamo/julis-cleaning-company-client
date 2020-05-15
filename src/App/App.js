@@ -6,6 +6,7 @@ import {Route} from "react-router-dom";
 //Routes
 import NavBar from "../Components/NavBar/NavBar";
 import LandingPage from "../Components/LandingPage/LandingPage";
+import Book from "../Components/Book/Book";
 import About from "../Components/About/About";
 import Contact from "../Components/Contact/Contact";
 import LogIn from "../Components/LogIn/LogIn";
@@ -19,6 +20,7 @@ class App extends React.Component {
             <>
                 <Route path="/" component={NavBar}></Route>
                 <Route exact path="/" component={LandingPage}></Route>
+                <Route exact path="/book" component={Book}></Route>
                 <Route exact path="/about" component={About}></Route>
                 <Route exact path="/contact" component={Contact}></Route>
                 <Route exact path="/login" component={LogIn}></Route>

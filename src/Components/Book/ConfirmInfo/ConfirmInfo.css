@@ -1,0 +1,103 @@
+#confirm-info-section{
+    padding-left: 5em !important;
+    max-width: 100% !important;
+}
+
+#confirm-info-section section{
+    max-width: 100% !important;
+}
+
+#confirm-info-section h3{
+    font-size: 2.2em;
+    margin-bottom: -.3em;
+}
+
+#confirm-info-section p {
+    font-size: .9em;
+    margin-bottom: 3em;
+}
+
+#confirm-info-form{
+    margin: 0;
+    padding: 0;
+}
+
+#confirm-info-fieldset{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+}
+
+#confirm-info-fieldset div{
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em auto;
+}
+
+#confirm-info-fieldset input{
+    max-width: 90%;
+    height: 2.9em;
+    margin-top: 1em;
+}
+
+#confirm-info-fieldset textarea{
+    max-width: 90%;
+    min-height: 10em;
+    margin-top: 1em;
+}
+
+@media screen and (max-width: 770px){
+    #confirm-info-section{
+        padding: 0 0 !important;
+    }
+    
+    #confirm-info-section h3{
+        font-size: 2.2em;
+        margin-bottom: -.3em;
+    }
+    
+    #confirm-info-section p {
+        font-size: .95em;
+        margin-bottom: 2em;
+    }
+    
+    #confirm-info-form{
+        margin: 0;
+        padding: 0;
+    }
+    
+    #confirm-info-fieldset{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border: 1px solid black;
+    }
+    
+    #confirm-info-fieldset div{
+        display: flex;
+        flex-direction: column;
+        margin: 1.5em auto;
+        padding: 0;
+        width: 100%;
+    }
+
+    #confirm-info-fieldset label{
+        width: 25em;
+        margin: 0 auto;
+    }
+    
+    #confirm-info-fieldset input{
+        width: 50%;
+        height: 2.9em;
+        margin: .5em 0 0 0;
+    }
+    
+    #confirm-info-fieldset textarea{
+        width: 10em;
+        min-height: 10em;
+        margin: .5em auto 0 auto;
+    }
+}

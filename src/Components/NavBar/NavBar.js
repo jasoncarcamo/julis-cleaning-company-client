@@ -99,7 +99,7 @@ export default class NavBar extends React.Component{
                     
                     <li className="nav-bar-account-opt">
                         <NavLink 
-                            to="/user/bookings"
+                            to="/user/my-bookings"
                             onClick={this.handleAccountOpt}>My Bookings</NavLink>
                     </li>
 

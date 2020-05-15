@@ -32,6 +32,10 @@
     padding-left: 1em;
 }
 
+.user-section-opt *{
+    color: black;
+}
+
 @media screen and (max-width: 770px){
     #user-section{
         display: grid;
@@ -67,7 +71,7 @@
     
     .user-section-opt{
         margin: .5em auto;
-        padding-left: 1em;
+        padding-left: 0;
         font-size: 1.2em;
     }
 }

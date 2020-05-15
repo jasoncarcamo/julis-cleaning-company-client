@@ -1,0 +1,119 @@
+#choose-date-section{
+    min-height: 20em;
+}
+
+#choose-date-section > section h3{
+    font-size: 2.2em;
+    margin: 2em 0;
+}
+
+#choose-date-section > section p{
+    text-align: center;
+    font-size: 1.1em;
+    margin: 1.5em auto -.3em auto;
+}
+
+.react-calendar__navigation__label{
+    font-size: 1em;
+}
+
+.calendar{
+    width: 100% !important;
+    padding: 5em 0 0 0 !important;
+}
+
+.calendar-tile{
+    border: .04em solid lightgrey !important;
+    padding: 1.5em 0em !important;
+}
+
+.react-time-picker__clock{
+    display: none !important;
+}
+
+.react-calendar__tile--now {
+    background: rgb(95, 95, 95) !important;
+    color: white;
+}
+
+.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+    background: #1087ff !important;
+}
+
+.react-time-picker{
+    display: flex !important;
+    height: 3em;
+    border: none;
+    margin: 0 auto 4em auto;
+    padding: 0 !important;
+    width: 11em !important;
+}
+
+.react-time-picker__wrapper{
+    padding: 0 2em !important;
+    width: 11em !important;
+}
+
+.react-time-picker *{
+    border: none !important;
+}
+
+.react-time-picker input{
+    font-size: 1.5em;
+}
+
+.react-time-picker__inputGroup__hour{
+    font-size: 1em;
+    margin: 0  !important;
+}
+
+.react-time-picker__button{
+    display: none !important;
+}
+
+@media screen and (max-width: 770px){
+    #choose-date-section{
+    }
+    
+    .react-calendar__navigation__label{
+        font-size: 1em;
+    }
+    
+    .calendar{
+        width: 100% !important;
+        padding: 5em 0 0 0 !important;
+    }
+    
+    .calendar-tile{
+        border: .04em solid lightgrey !important;
+        padding: 1.5em 0em !important;
+    }
+    
+    .react-time-picker__clock{
+        display: none !important;
+    }
+    
+    .react-calendar__tile--now {
+        background: rgb(95, 95, 95) !important;
+        color: white;
+    }
+    
+    .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+        background: #1087ff !important;
+    }
+    
+    .react-time-picker{
+        width: 20em !important;
+        height: 3em;
+        margin: 0 auto 5em auto!important;   
+    }
+    
+    .react-time-picker input{
+        font-size: 1.5em;
+    }
+    
+    .react-time-picker__inputGroup__hour{
+        font-size: 1em;
+        margin-left: 33.5% !important;
+    }
+}
