@@ -364,8 +364,12 @@ header{
     
     .nav-bar-user-icon-btn{
         font-size: 1.4em;
-        margin: 0 .4em;
+        margin: auto .4em;
     }
+
+    #nav-bar-account-options{
+        top: 1.7em;
+    }    
     
     #social-bar{
         display: flex;

@@ -5,6 +5,7 @@ import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHandSparkles, faUser, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {faFacebookF, faInstagram, faTwitter} from "@fortawesome/free-brands-svg-icons"
+import UserToken from "../../Services/UserToken/UserToken";
 
 export default class NavBar extends React.Component{
     constructor(props){
@@ -83,6 +84,73 @@ export default class NavBar extends React.Component{
         })
     }
 
+    isLoggedIn = ()=>{
+        if(UserToken.hasToken()){
+            return(
+                <>
+                    <li className="nav-bar-account-opt">
+                        <NavLink 
+                            to="/user/bookings"
+                            onClick={this.handleAccountOpt}>My Bookings</NavLink>
+                    </li>
+
+                    <li className="nav-bar-account-opt">
+                        <NavLink 
+                            to="/user/account"
+                            onClick={this.handleAccountOpt}>My Account</NavLink>
+                    </li>
+
+                    <li className="nav-bar-account-opt" style={{
+                        borderTop: ".07em solid lightgrey"
+                    }}>
+                        <NavLink 
+                            to="/"
+                            onClick={this.handleLogoff}>Log off</NavLink>
+                    </li>
+                </>
+            )
+        } else{
+            return (
+                <>
+                    <li className="nav-bar-account-opt">
+                        <NavLink 
+                            to="/login"
+                            onClick={this.handleAccountOpt}>log In</NavLink>
+                    </li>
+
+                    <li className="nav-bar-account-opt">
+                        <NavLink 
+                            to="/signup"
+                            onClick={this.handleAccountOpt}>Sign Up</NavLink>
+                    </li>
+                </>
+            )
+        }
+    }
+
+    handleAccountOpt = ()=>{
+        const accountOptions = document.getElementById("nav-bar-account-options");
+        const navSection = document.querySelector("#nav-bar-second-sect > section");
+        const button = document.getElementById("nav-burger");
+
+        accountOptions.classList.remove("show-account-options");
+        
+        if(this.state.screenWidth > 770){
+            return;
+        };
+
+        button.classList.toggle("is-active");
+
+        navSection.classList.remove("display-nav-bar");
+        navSection.classList.add("hide-nav-bar");
+    }
+
+    handleLogoff = (e)=>{
+
+        UserToken.deleteToken();
+        this.handleAccountOpt();
+    }
+
     render(){
         console.log(this.state)
         return(
@@ -137,19 +205,7 @@ export default class NavBar extends React.Component{
                                 
                                 <section id="nav-bar-account-options">
                                     <ul>
-                                        <li className="nav-bar-account-opt">
-                                            <NavLink to="/user/bookings">My Bookings</NavLink>
-                                        </li>
-
-                                        <li className="nav-bar-account-opt">
-                                            <NavLink to="/user/account">My Account</NavLink>
-                                        </li>
-
-                                        <li className="nav-bar-account-opt" style={{
-                                            borderTop: ".07em solid lightgrey"
-                                        }}>
-                                            <NavLink to="/">Log off</NavLink>
-                                        </li>
+                                        {this.isLoggedIn()}
                                     </ul>
                                     
                                 </section>
