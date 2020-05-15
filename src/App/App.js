@@ -10,6 +10,7 @@ import About from "../Components/About/About";
 import Contact from "../Components/Contact/Contact";
 import LogIn from "../Components/LogIn/LogIn";
 import SignUp from "../Components/SignUp/SignUp";
+import User from "../Components/User/User";
 import Footer from "../Components/Footer/Footer";
 
 class App extends React.Component {
@@ -22,6 +23,7 @@ class App extends React.Component {
                 <Route exact path="/contact" component={Contact}></Route>
                 <Route exact path="/login" component={LogIn}></Route>
                 <Route exact path="/signup" component={SignUp}></Route>
+                <Route path="/user" component={User}></Route>
                 <Route path="/" component={Footer}></Route>
             </>
         );

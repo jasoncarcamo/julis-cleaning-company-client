@@ -1,0 +1,75 @@
+#user-account-section{
+    border: .05em solid black;
+    padding: 0 2em;
+    margin-bottom: 3.5em;
+    min-height: 30em;
+}
+
+#user-account-section > section:nth-child(1){
+    border-bottom: .05em solid lightgrey;
+}
+
+#user-account-section h3{
+    font-size: 2.2em;
+    margin-bottom: -.4em;
+    padding: 0;
+}
+
+#user-account-section > section > h5{
+    font-size: .8em;
+    margin: 1.2em 0 2.2em 0;
+    padding: 0;
+}
+
+#user-account-myaccount{
+    position: relative;
+}
+
+#user-account-form{
+    margin: 3em auto 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+#user-account-fieldset{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#user-account-fieldset > div{
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr;
+    grid-gap: 1em;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#user-account-fieldset > div > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#user-account-fieldset input{
+    height: 3em;
+    margin: 1em 0;
+}
+
+#user-account-update-submit{
+    display: block;
+    font-size: 1em;
+    width: 16em;
+    height: 2.5em;
+    margin: 1em auto 1.8em auto;
+    background-color: rgb(137, 196, 242);
+    color: white;
+    border: none;
+}
+
+#user-account-update-submit:hover{
+    opacity: .7;
+}

@@ -73,6 +73,7 @@ header{
     height: 3em;
     padding: 0;
     margin: auto 0 auto .7em;
+    cursor: pointer;
 }
 
 #nav-bar-icon *{
@@ -84,6 +85,7 @@ header{
 #nav-bar-header{
     margin: auto 0 auto .8em;
     padding: 0;
+    cursor: pointer;
 }
 
 #nav-bar-header h1{
@@ -211,6 +213,10 @@ header{
 
 .nav-bar-account-opt:hover{
     background-color: black;
+}
+
+.nav-bar-account-opt:hover{
+    color: white;
 }
 
 .nav-bar-account-opt:hover *{

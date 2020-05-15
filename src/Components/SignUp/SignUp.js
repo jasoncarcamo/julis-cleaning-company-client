@@ -17,6 +17,12 @@ export default class SignUp extends React.Component{
         }
     };
 
+    componentDidMount(){
+        if(UserToken.hasToken()){
+            this.props.history.push("/user");
+        }
+    }
+
     handleInput = (e)=>{
         this.setState({
             [e.target.name]: e.target.value

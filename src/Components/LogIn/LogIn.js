@@ -2,6 +2,7 @@ import React from "react";
 import "./LogIn.css";
 import {NavLink} from "react-router-dom";
 import UserToken from '../../Services/UserToken/UserToken';
+import UserContext from "../../Context/UserContext/UserContext";
 
 export default class LogIn extends React.Component{
     constructor(props){
@@ -10,6 +11,14 @@ export default class LogIn extends React.Component{
             email: "",
             password: "",
             error: "'"
+        }
+    }
+
+    static contextType = UserContext;
+
+    componentDidMount(){
+        if(UserToken.hasToken()){
+            this.props.history.push("/user");
         }
     }
 
@@ -41,16 +50,21 @@ export default class LogIn extends React.Component{
                 return res.json();
             })
             .then( resData => {
-                console.log(resData);
-                this.setState({
-                    email: "",
-                    password: "",
-                    error: ""
-                });
 
                 UserToken.saveToken(resData.token);
 
-                this.props.history.push("/");
+                this.context.refreshUserContext()
+                    .then( refreshed => {
+
+                        this.setState({
+                            email: "",
+                            password: "",
+                            error: ""
+                        });
+
+                        this.props.history.push("/");
+                    });
+                
             })
             .catch( err => this.setState({
                 error: err.error

@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHandSparkles, faUser, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {faFacebookF, faInstagram, faTwitter} from "@fortawesome/free-brands-svg-icons"
 import UserToken from "../../Services/UserToken/UserToken";
+import UserContext from "../../Context/UserContext/UserContext";
 
 export default class NavBar extends React.Component{
     constructor(props){
@@ -15,6 +16,8 @@ export default class NavBar extends React.Component{
             pageYoffset: window.pageYOffset
         }
     }
+
+    static contextType = UserContext;
 
     componentDidMount(){
         window.addEventListener("resize", (e)=>{
@@ -90,22 +93,21 @@ export default class NavBar extends React.Component{
                 <>
                     <li className="nav-bar-account-opt">
                         <NavLink 
+                            to="/user"
+                            onClick={this.handleAccountOpt}>My Account</NavLink>
+                    </li>
+                    
+                    <li className="nav-bar-account-opt">
+                        <NavLink 
                             to="/user/bookings"
                             onClick={this.handleAccountOpt}>My Bookings</NavLink>
                     </li>
 
-                    <li className="nav-bar-account-opt">
-                        <NavLink 
-                            to="/user/account"
-                            onClick={this.handleAccountOpt}>My Account</NavLink>
-                    </li>
-
                     <li className="nav-bar-account-opt" style={{
                         borderTop: ".07em solid lightgrey"
-                    }}>
-                        <NavLink 
-                            to="/"
-                            onClick={this.handleLogoff}>Log off</NavLink>
+                    }}
+                    onClick={this.handleLogoff}>
+                        Log off
                     </li>
                 </>
             )
@@ -148,7 +150,15 @@ export default class NavBar extends React.Component{
     handleLogoff = (e)=>{
 
         UserToken.deleteToken();
-        this.handleAccountOpt();
+
+        this.context.refreshUserContext()
+            .then( refreshed =>{
+                this.handleAccountOpt();
+            });
+    }
+
+    toHome = (e)=>{
+        this.props.history.push("/");
     }
 
     render(){
@@ -158,10 +168,14 @@ export default class NavBar extends React.Component{
                 <nav id="nav-bar">
                     <section id="brand-container">
                         <section id='nav-bar-icon'>
-                            <FontAwesomeIcon icon={faHandSparkles}/>
+                            <FontAwesomeIcon 
+                                icon={faHandSparkles}
+                                onClick={this.toHome}/>
                         </section>
 
-                        <section id="nav-bar-header">
+                        <section 
+                            id="nav-bar-header"
+                            onClick={this.toHome}>
                             <h1>Julis Cleaning Company</h1>
                             <p>HOME CLEANING PROFESSIONALS</p>
                         </section>
