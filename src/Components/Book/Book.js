@@ -13,8 +13,17 @@ export default class Book extends React.Component{
                 time: ""
             },
             chooseDate: true,
-            confirmInfo: false
+            confirmInfo: false,
+            screenWidth: window.innerWidth,
         }
+    }
+
+    componentDidMount(){
+        window.addEventListener("resize", (e)=>{
+            this.setState({
+                screenWidth: window.innerWidth
+            });
+        })
     }
 
     setInfo = (info)=>{
@@ -37,12 +46,26 @@ export default class Book extends React.Component{
         });
     }
 
+    finalStep = ()=>{
+        this.setState({
+            confirmInfo: false,
+            chooseData: false
+        })
+    }
+
     render(){
         console.log(this.state)
         return (
             <section id="book-section">
-                {this.state.chooseDate ? <ChooseDate setInfo={this.setInfo}/> : ""}
-                {this.state.confirmInfo ? <ConfirmInfo handleBackStep={this.handleBackStep}/> : ""}
+                {this.state.chooseDate ? <ChooseDate setInfo={this.setInfo} chooseData={this.state.chooseDate}
+                    confirmInfo={this.state.confirmInfo}
+                    handleNextStep={this.handleNextStep}
+                    handleBackStep={this.handleBackStep}/> : ""}
+                {this.state.confirmInfo ? <ConfirmInfo chooseData={this.state.chooseDate}
+                    confirmInfo={this.state.confirmInfo}
+                    handleNextStep={this.handleNextStep}
+                    handleBackStep={this.handleBackStep}
+                    finalStep={this.finalStep}/> : ""}
 
                 <BookSteps 
                     info={this.state.info}

@@ -2,10 +2,17 @@ import React from "react";
 import "./ConfirmInfo.css";
 
 export default class ConfirmInfo extends React.Component{
+    goNext = ()=>{
+        const booksSection = document.getElementById("book-steps-section");
+
+        this.props.finalStep();
+        booksSection.classList.add("show-book-step");
+    };
+
     render(){
         return (
             <section id="confirm-info-section">
-                <button onClick={this.props.handleBackStep}>Back</button>
+                <button className="confirm-info-section-first-btn" onClick={this.props.handleBackStep}>Back</button>
 
                 <section>
                     <h3>Add Your Info</h3>
@@ -15,27 +22,25 @@ export default class ConfirmInfo extends React.Component{
                         <fieldset id="confirm-info-fieldset">
                             
                             <div>
-                                <label htmlFor="confirm-info-name">Name</label>
-                                <input type="text" id="confirm-info-name" name="name"/>
+                                <input type="text" id="confirm-info-name" name="name" placeholder="Name"/>
                             </div>
 
                             <div>
-                                <label htmlFor="confirm-info-email">Email</label>
-                                <input type="text" id="confirm-info-email" name="email"/>
+                                <input type="text" id="confirm-info-email" name="email" placeholder="Email"/>
                             </div>
 
                             <div>
-                                <label htmlFor="confirm-info-mobile-number">Mobile number</label>
-                                <input type="tel" id="confirm-info-mobile-number" name="mobile_number"/>
+                                <input type="tel" id="confirm-info-mobile-number" name="mobile_number" placeholder="Mobile number"/>
                             </div>
 
                             <div>
-                                <label htmlFor="confirm-info-message">Add Your Message</label>
-                                <textarea id="confirm-info-message" name="message"/>
+                                <textarea id="confirm-info-message" name="message" placeholder="Add Your Message"/>
                             </div>
                         </fieldset>
                     </form>
                 </section>
+
+                <button className="next-btn" onClick={this.goNext}>Next</button>
             </section>
         )
     }

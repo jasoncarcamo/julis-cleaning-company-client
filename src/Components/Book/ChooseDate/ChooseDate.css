@@ -31,12 +31,7 @@
     display: none !important;
 }
 
-.react-calendar__tile--now {
-    background: rgb(95, 95, 95) !important;
-    color: white;
-}
-
-.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+.react-calendar__tile--active:hover, .react-calendar__tile--active:focus {
     background: #1087ff !important;
 }
 
@@ -69,6 +64,13 @@
 
 .react-time-picker__button{
     display: none !important;
+}
+
+.next-btn{
+    display: none;
+    width: 9.5em;
+    height: 3.5em;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 770px){
@@ -115,5 +117,12 @@
     .react-time-picker__inputGroup__hour{
         font-size: 1em;
         margin-left: 33.5% !important;
+    }
+
+    .next-btn{
+        display: block;
+        width: 9.5em;
+        height: 3.5em;
+        margin: -1em auto 2em auto;
     }
 }

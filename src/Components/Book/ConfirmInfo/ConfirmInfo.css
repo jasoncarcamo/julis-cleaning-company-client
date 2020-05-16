@@ -1,6 +1,14 @@
 #confirm-info-section{
-    padding-left: 5em !important;
+    padding-left: 0 !important;
     max-width: 100% !important;
+}
+
+.confirm-info-section-first-btn{
+    display: block;
+    padding: .4em 2em;
+    position: relative;
+    top: 1em;
+    left: 2em;
 }
 
 #confirm-info-section section{
@@ -9,11 +17,13 @@
 
 #confirm-info-section h3{
     font-size: 2.2em;
+    text-align: center;
     margin-bottom: -.3em;
 }
 
 #confirm-info-section p {
     font-size: .9em;
+    text-align: center;
     margin-bottom: 3em;
 }
 
@@ -27,6 +37,7 @@
     justify-content: space-evenly;
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 #confirm-info-fieldset div{
@@ -36,15 +47,37 @@
 }
 
 #confirm-info-fieldset input{
-    max-width: 90%;
-    height: 2.9em;
-    margin-top: 1em;
+    min-width: 90%;
+    height: 3em;
+    margin: 0 auto !important;
+    padding-left: 1.5em;
+    border-top: none;
+    border-right: none;
+    border-bottom: .05em solid black;
+    border-left: none;
+    transition: border .2s ease;
+}
+
+#confirm-info-fieldset input:hover{
+    border-bottom: .3em solid black;
+}
+
+#confirm-info-fieldset input:focus{
+    border-bottom: .3em solid black;
 }
 
 #confirm-info-fieldset textarea{
-    max-width: 90%;
+    min-width: 90%;
     min-height: 10em;
     margin-top: 1em;
+    outline: none;
+}
+
+.next-btn{
+    display: none;
+    width: 9.5em;
+    height: 3.5em;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 770px){
@@ -73,7 +106,6 @@
         margin: 0;
         padding: 0;
         border: none;
-        border: 1px solid black;
     }
     
     #confirm-info-fieldset div{
@@ -99,5 +131,12 @@
         width: 10em;
         min-height: 10em;
         margin: .5em auto 0 auto;
+    }
+
+    .next-btn{
+        display: block;
+        width: 9.5em;
+        height: 3.5em;
+        margin: 0 auto 2em auto;
     }
 }

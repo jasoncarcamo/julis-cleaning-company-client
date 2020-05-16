@@ -82,6 +82,8 @@ export default class ChooseDate extends React.Component{
                             value={this.state.validTime}
                             />
                     </section>
+
+                    <button className="next-btn" onClick={this.props.handleNextStep}>Next</button>
                 </section>
             </section>
         )
