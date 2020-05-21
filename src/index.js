@@ -5,12 +5,15 @@ import App from './App/App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {UserProvider} from "./Context/UserContext/UserContext";
+import {UserBookingsProvider} from "./Context/UserBookingsContext/UserBookingsContext";
 
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>
             <UserProvider>
-                <App/>
+                <UserBookingsProvider>
+                    <App/>
+                </UserBookingsProvider>
             </UserProvider>
         </React.StrictMode>
     </BrowserRouter>,

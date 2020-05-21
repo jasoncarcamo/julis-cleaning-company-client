@@ -1,7 +1,10 @@
-#upcoming-bookings-list{
+#upcoming-bookings-container{
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: 0;
-    min-height: 18em;
+    padding: 0 1em;
+    height: 18em;
+    overflow: auto;
 }
 
 #no-upcoming{

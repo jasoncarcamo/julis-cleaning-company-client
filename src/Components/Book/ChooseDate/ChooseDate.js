@@ -9,8 +9,7 @@ export default class ChooseDate extends React.Component{
         super(props);
         this.state = {
             date: new Date(),
-            time: "",
-            validTime: ""
+            time: ""
         }
     }
 
@@ -67,7 +66,6 @@ export default class ChooseDate extends React.Component{
                     
                     <Calendar
                         calendarType={"US"}
-                        minDate={new Date()}
                         tileClassName="calendar-tile"
                         className="calendar"
                         value={this.state.date} onChange={this.handleDate}/>

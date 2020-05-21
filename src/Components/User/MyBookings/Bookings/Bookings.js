@@ -2,6 +2,7 @@ import React from "react";
 import "./Bookings.css";
 import Upcoming from "./Upcoming/Upcoming";
 import History from "./History/History";
+import UserBookingsContext from "../../../../Context/UserBookingsContext/UserBookingsContext"; 
 
 const headerStyle = {
     borderBottom: ".2em solid rgba(137, 196, 242, 0.6)"
@@ -12,22 +13,14 @@ export default class Bookings extends React.Component{
         super(props);
         this.state = {
             showUpcoming: true,
-            showHistory: false
+            showHistory: false,
+            bookings: []
         };
     };
 
-    renderUpcoming = ()=>{
-        let bookings = [];
+    static contextType = UserBookingsContext;
 
-        if(!bookings){
-            return 
-        }
-
-        let upcomingBookings = bookings.map((book, index)=>{
-            return <Upcoming key={index} book={book}/>
-        });
-
-        return upcomingBookings;
+    componentDidMount(){
     }
 
     handleDisplay = (e)=>{
@@ -38,6 +31,7 @@ export default class Bookings extends React.Component{
     }
 
     render(){
+        console.log(this.context)
         return(
             <section id="user-bookings">
                 <section id="bookings-options-header">
@@ -49,8 +43,8 @@ export default class Bookings extends React.Component{
                         style={this.state.showHistory ? headerStyle : null}>History</p>
                 </section>
 
-                {this.state.showUpcoming ? <Upcoming/> : ""}
-                {this.state.showHistory ? <History/> : ""}
+                {this.state.showUpcoming ? <Upcoming bookings={this.context.bookings}/> : ""}
+                {this.state.showHistory ? <History bookings={this.context.bookings}/> : ""}
             </section>
         )
     }

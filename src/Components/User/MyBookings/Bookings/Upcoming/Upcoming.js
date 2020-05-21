@@ -1,5 +1,6 @@
 import React from "react";
 import "./Upcoming.css";
+import UpcomingItem from "./UpcomingItem/UpcomingItem"
 
 export default class Upcoming extends React.Component{
     constructor(props){
@@ -9,8 +10,25 @@ export default class Upcoming extends React.Component{
         };
     };
 
+    convertTime = (time)=>{
+        let newTime = time.split(":");
+        let hours = Number(newTime[0]);
+        let minutes = Number(newTime[1].split(" ")[0]);
+        let hourType = newTime[1].split(" ")[1];
+
+        if(hourType == "PM" && hours < 12){
+            hours += 12;
+        } else if( hourType == "AM" && hours == 12){
+            hours = Number("00");
+        };
+
+        hours =+ minutes;
+
+        return hours;
+    }
+
     renderItems = ()=>{
-        let bookings = [];
+        let bookings = this.props.bookings;
 
         if(bookings.length == 0){
             return (
@@ -22,16 +40,29 @@ export default class Upcoming extends React.Component{
             )
         };
 
-        bookings = bookings.map((book, index)=>{
-            return <Upcoming key={index} book={book}/>
+        bookings.sort((a, b)=>{
+            return new Date(b.date) - new Date(a.date);
         });
 
-        return bookings
+        bookings = bookings.map((book, index)=>{
+
+            if(new Date(book.date).toDateString() == new Date().toDateString()){
+                return <UpcomingItem key={index} book={book}/>;
+            };
+
+            if(new Date(book.date) > new Date() || new Date(book.date) === new Date()){
+                return <UpcomingItem key={index} book={book}/>;
+            };
+
+        });
+
+        return bookings;
     }
 
     render(){
+        console.log(this.props);
         return (
-            <ul id="upcoming-bookings-list">
+            <ul id="upcoming-bookings-container">
                 {this.renderItems()}
             </ul>
         )

@@ -9,6 +9,11 @@
     position: relative;
     top: 1em;
     left: 2em;
+    height: 2em;
+    font-size: 1em;
+    background-color: skyblue;
+    border: none;
+    color: white;
 }
 
 #confirm-info-section section{
@@ -66,11 +71,12 @@
     border-bottom: .3em solid black;
 }
 
-#confirm-info-fieldset textarea{
+#confirm-info-message{
     min-width: 90%;
     min-height: 10em;
     margin-top: 1em;
     outline: none;
+    padding: 1em 0 0 1em;
 }
 
 .next-btn{

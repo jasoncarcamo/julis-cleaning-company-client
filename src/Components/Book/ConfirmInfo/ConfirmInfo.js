@@ -1,13 +1,38 @@
 import React from "react";
 import "./ConfirmInfo.css";
+import UserToken from "../../../Services/UserToken/UserToken";
 
 export default class ConfirmInfo extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            name: "",
+            email: "",
+            mobile_number: "",
+            message: "",
+            error: ""
+        }
+    }
     goNext = ()=>{
         const booksSection = document.getElementById("book-steps-section");
 
         this.props.finalStep();
         booksSection.classList.add("show-book-step");
     };
+
+    handleInput = (e)=>{
+        const newState = this.state;
+        
+        newState[e.target.name] = e.target.value;
+
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+
+        delete newState.error;
+
+        this.props.setContactInfo(newState);
+    }
 
     render(){
         return (
@@ -22,19 +47,42 @@ export default class ConfirmInfo extends React.Component{
                         <fieldset id="confirm-info-fieldset">
                             
                             <div>
-                                <input type="text" id="confirm-info-name" name="name" placeholder="Name"/>
+                                <input 
+                                    type="text" 
+                                    id="confirm-info-name" 
+                                    name="name" 
+                                    placeholder="Name"
+                                    value={this.state.name}
+                                    onChange={this.handleInput}/>
                             </div>
 
                             <div>
-                                <input type="text" id="confirm-info-email" name="email" placeholder="Email"/>
+                                <input 
+                                    type="text" 
+                                    id="confirm-info-email" 
+                                    name="email" 
+                                    placeholder="Email"
+                                    value={this.state.email}
+                                    onChange={this.handleInput}/>
                             </div>
 
                             <div>
-                                <input type="tel" id="confirm-info-mobile-number" name="mobile_number" placeholder="Mobile number"/>
+                                <input 
+                                    type="tel" 
+                                    id="confirm-info-mobile-number" 
+                                    name="mobile_number" 
+                                    placeholder="Mobile number"
+                                    value={this.state.mobile_number}
+                                    onChange={this.handleInput}/>
                             </div>
 
                             <div>
-                                <textarea id="confirm-info-message" name="message" placeholder="Add Your Message"/>
+                                <textarea 
+                                    id="confirm-info-message" 
+                                    name="message" 
+                                    placeholder="Add Your Message"
+                                    value={this.state.message}
+                                    onChange={this.handleInput}/>
                             </div>
                         </fieldset>
                     </form>

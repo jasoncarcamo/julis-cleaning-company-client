@@ -1,5 +1,4 @@
 #book-steps-section{
-    border: 1px solid black;
     position: fixed;
     right: 0;
     top: 50%;
@@ -7,6 +6,41 @@
     min-height: 16em;
     transform: translateY(-50%);
     z-index: 1;
+    border-radius: .4em;
+    box-shadow: .25em .5em 1em grey;
+}
+
+#book-steps-section p{
+    text-align: center;
+}
+
+#book-steps-section > button{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4.5em;
+    height: 2em;
+    font-size: 1em;
+}
+
+#book-steps-section div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#book-steps-section button{
+    width: 4.5em;
+    height: 2em;
+    font-size: 1em;
+    background-color: skyblue;
+    border: none;
+    color: white;
+    margin-bottom: 1em;
 }
 
 @media screen and (max-width: 770px){

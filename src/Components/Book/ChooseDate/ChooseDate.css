@@ -68,9 +68,13 @@
 
 .next-btn{
     display: none;
-    width: 9.5em;
-    height: 3.5em;
     margin: 0 auto;
+    width: 4.5em;
+    height: 2em;
+    font-size: 1em;
+    background-color: skyblue;
+    border: none;
+    color: white;
 }
 
 @media screen and (max-width: 770px){
