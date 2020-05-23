@@ -48,7 +48,7 @@
 #confirm-info-fieldset div{
     display: flex;
     flex-direction: column;
-    margin: 1.5em auto;
+    margin: 1.75em auto;
 }
 
 #confirm-info-fieldset input{
@@ -69,6 +69,11 @@
 
 #confirm-info-fieldset input:focus{
     border-bottom: .3em solid black;
+}
+
+#confirm-info-fieldset span{
+    min-width: 90%;
+    margin: 0 auto;
 }
 
 #confirm-info-message{

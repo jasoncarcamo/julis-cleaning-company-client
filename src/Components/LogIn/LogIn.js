@@ -10,6 +10,7 @@ export default class LogIn extends React.Component{
         this.state = {
             email: "",
             password: "",
+            loading: false,
             error: "'"
         }
     }
@@ -30,6 +31,10 @@ export default class LogIn extends React.Component{
 
     handleLogIn = (e)=>{
         e.preventDefault();
+
+        this.setState({
+            loading: true
+        });
 
         fetch("http://localhost:8000/api/login", {
             method: "POST",
@@ -62,12 +67,13 @@ export default class LogIn extends React.Component{
                             error: ""
                         });
 
-                        this.props.history.push("/");
+                        this.props.history.push("/user/my-bookings");
                     });
                 
             })
             .catch( err => this.setState({
-                error: err.error
+                error: err.error,
+                loading: false
             }))
     }
 
@@ -108,7 +114,7 @@ export default class LogIn extends React.Component{
 
                         <p>{this.state.error ? this.state.error : ""}</p>
 
-                        <button id="login-submit" type="submit">Log In</button>
+                        {this.state.loading ? <p>Loading...</p> : <button id="login-submit" type="submit">Log In</button>}
                     </fieldset>
                 </form>
             </section>

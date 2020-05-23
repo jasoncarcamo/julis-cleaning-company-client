@@ -56,6 +56,18 @@ export default class Upcoming extends React.Component{
 
         });
 
+        bookings = bookings.filter(( book) => book !== undefined);
+
+        if(bookings.length == 0){
+            return (
+                <li id="no-upcoming">
+                    <p>You've got nothing booked at the moment.</p>
+
+                    <p>Contact Us</p>
+                </li>
+            )
+        };
+
         return bookings;
     }
 

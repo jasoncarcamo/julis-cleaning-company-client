@@ -54,8 +54,6 @@ export default class BookSteps extends React.Component{
             submitting: true
         });
 
-        console.log(newBookings);
-
         fetch("http://localhost:8000/api/bookings", {
             method: "POST",
             headers: {
@@ -106,6 +104,8 @@ export default class BookSteps extends React.Component{
             <section id="book-steps-section">
                 <p>Set for: {this.props.info.date.toDateString()}</p>
                 <p>Best time: {this.props.info.time? this.props.info.time : "Choose the best time that works for you."}</p>
+
+                <p className="book-steps-section-error">{this.state.error ? this.state.error : ""}</p>
 
                 {this.props.info.time && this.props.chooseData ? <button onClick={this.props.handleNextStep}>Next</button> : ""}
                 {this.props.confirmInfo && !this.props.chooseData && !this.state.submitting ? this.renderDirectionButtons() : ""}

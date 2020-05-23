@@ -54,6 +54,7 @@ export default class ConfirmInfo extends React.Component{
                                     placeholder="Name"
                                     value={this.state.name}
                                     onChange={this.handleInput}/>
+                                <span>* Required</span>
                             </div>
 
                             <div>
@@ -64,6 +65,7 @@ export default class ConfirmInfo extends React.Component{
                                     placeholder="Email"
                                     value={this.state.email}
                                     onChange={this.handleInput}/>
+                                <span>* Required</span>
                             </div>
 
                             <div>
@@ -74,6 +76,7 @@ export default class ConfirmInfo extends React.Component{
                                     placeholder="Mobile number"
                                     value={this.state.mobile_number}
                                     onChange={this.handleInput}/>
+                                <span>* Required</span>
                             </div>
 
                             <div>
@@ -83,6 +86,7 @@ export default class ConfirmInfo extends React.Component{
                                     placeholder="Add Your Message"
                                     value={this.state.message}
                                     onChange={this.handleInput}/>
+                                <span>* Required</span>
                             </div>
                         </fieldset>
                     </form>

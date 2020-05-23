@@ -28,7 +28,11 @@ export default class User extends React.Component{
             <section id="user-section">
                 <section id="user-section-opts-container">
                     <section>
-                        <p>{this.context.user.first_name} {this.context.user.last_name}</p>
+                        <p>
+                            <strong>
+                                Hello {this.context.user.first_name} {this.context.user.last_name}
+                            </strong>
+                        </p>
                     </section>
 
                     <ul id="user-section-opt-list-container">

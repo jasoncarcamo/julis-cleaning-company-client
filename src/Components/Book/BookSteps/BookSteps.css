@@ -10,8 +10,20 @@
     box-shadow: .25em .5em 1em grey;
 }
 
-#book-steps-section p{
+.book-steps-section-error{
     text-align: center;
+    font-weight: bold;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#book-steps-section p{
+    font-size: 1em;
+    text-align: center;
+}
+
+#book-steps-section p:nth-child(1){
+    margin-top: 4em;
 }
 
 #book-steps-section > button{
@@ -55,6 +67,11 @@
         min-height: 16em;
         transform: translateY(0);
         z-index: 1;
+    }
+
+    #book-steps-section p:nth-child(1){
+        margin-top: 7em;
+        font-size: 1.1em;
     }
 
     .show-book-step{

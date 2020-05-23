@@ -1,15 +1,19 @@
 import React from "react";
 import "./UpcomingItem.css";
 import UserToken from "../../../../../../Services/UserToken/UserToken";
+import UserBookingContext from "../../../../../../Context/UserBookingsContext/UserBookingsContext";
 
 export default class UpcomingItem extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             delete: false,
-            cancelConfirmed: false
+            cancelConfirmed: false,
+            loading: false
         };
     };
+
+    static contextType = UserBookingContext;
 
     componentDidMount(){
 
@@ -21,10 +25,27 @@ export default class UpcomingItem extends React.Component{
         })
     }
 
+    hasBeen24Hours = ()=>{
+        var OneDay = new Date().getTime() + (24 * 60 * 60 * 1000);
+        
+        if (OneDay > new Date(this.props.book.date).getTime()) {
+            // The yourDate time is less than 1 days from now
+            console.log(false);
+            console.log(OneDay, new Date(this.props.book.date).getTime())
+            return false;
+        }
+        else if (OneDay < new Date(this.props.book.date)) {
+            // The yourDate time is more than 1 days from now
+            console.log(true);
+            console.log(OneDay, new Date(this.props.book.date).getTime())
+            return true;
+        }
+    }
+
     renderOptions = ()=>{
         return (
             <div>
-                <button onClick={this.handleCancel}>Cancel</button>
+                {this.hasBeen24Hours() === false ? <button onClick={this.handleCancel}>Cancel</button> : ""}
                 <p>* Must be 24 hour in advance to cancel.</p>
             </div>
         )
@@ -37,13 +58,11 @@ export default class UpcomingItem extends React.Component{
 
                 <p>{this.state.error ? this.state.error : ""}</p>
                 
-                <div>
-                    <button onClick={()=> this.setState({
-                    cancelConfirmed: true,
-                    delete: true
-                })}>Yes</button>
+                
+                {this.state.loading ? <p>Loading...</p> : <div>
+                    <button onClick={this.handleDelete}>Yes</button>
                     <button onClick={this.handleCancel}>Cancel</button>
-                </div>
+                </div>}
             </div>
         )
     }
@@ -53,6 +72,8 @@ export default class UpcomingItem extends React.Component{
             cancelConfirmed: false,
             delete: false
         });
+
+        this.context.deleteBook(this.props.book.id);
     }
 
     renderDone = ()=>{
@@ -66,6 +87,10 @@ export default class UpcomingItem extends React.Component{
     }
 
     handleDelete = ()=>{
+
+        this.setState({
+            loading: true
+        })
         
         fetch(`http://localhost:8000/api/bookings/${this.props.book.id}`, {
             method: "DELETE",
@@ -83,12 +108,14 @@ export default class UpcomingItem extends React.Component{
             .then( resData => {
                 this.setState({
                     cancelConfirmed: true,
-                    delete: true
+                    delete: true,
+                    loading: false
                 });
             })
             .catch( err => {
                 this.setState({
-                    error: err.error
+                    error: err.error,
+                    loading: false
                 });
             });
     }

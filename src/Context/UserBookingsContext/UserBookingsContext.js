@@ -3,7 +3,8 @@ import UserToken from "../../Services/UserToken/UserToken";
 
 const UserBookingsContext = React.createContext({
     bookings: [],
-    completeBooking: ()=>{}
+    completeBooking: ()=>{},
+    deleteBook: ()=>{}
 });
 
 export default UserBookingsContext;
@@ -53,10 +54,32 @@ export class UserBookingsProvider extends React.Component{
         this.componentDidMount();
     }
 
+    deleteBook = (id)=>{
+        console.log(id);
+        let bookings = this.state.bookings;
+        let oldBookings = this.state.bookings;
+        let index;
+
+        bookings = bookings.filter( book => book.id === id);
+
+        index = oldBookings.indexOf(bookings[0]);
+
+        console.log(oldBookings);
+
+        oldBookings.splice(index, 1);
+
+        this.setState({
+            bookings: oldBookings
+        });
+
+        this.componentDidMount();
+    }
+
     render(){
         const value = {
             bookings: this.state.bookings,
-            completeBooking: this.completeBooking
+            completeBooking: this.completeBooking,
+            deleteBook: this.deleteBook
         };
         console.log(this.state)
         return (

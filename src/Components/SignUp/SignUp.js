@@ -13,6 +13,7 @@ export default class SignUp extends React.Component{
             mobile_number: "",
             password: "",
             confirmPassword: "",
+            loading: false,
             error: ""
         }
     };
@@ -20,7 +21,7 @@ export default class SignUp extends React.Component{
     componentDidMount(){
         if(UserToken.hasToken()){
             this.props.history.push("/user");
-        }
+        };
     }
 
     handleInput = (e)=>{
@@ -31,6 +32,10 @@ export default class SignUp extends React.Component{
 
     handleSignUp = (e)=>{
         e.preventDefault();
+
+        this.setState({
+            loading: true
+        })
 
         fetch("http://localhost:8000/api/register", {
             method: "POST",
@@ -67,7 +72,8 @@ export default class SignUp extends React.Component{
                 UserToken.saveToken(resData.token);
             })
             .catch( err => this.setState({
-                error: err.error
+                error: err.error,
+                loading: false
             }));
     }
 
