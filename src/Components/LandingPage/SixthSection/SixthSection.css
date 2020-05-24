@@ -44,7 +44,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: .05 solid black;
+    border-bottom: .05 solid black !important;
     transition: border .3s ease;
     border-radius: .1em;
 }
