@@ -57,8 +57,19 @@ export default class ChooseDate extends React.Component{
         this.props.setInfo(newState);
     }
 
+    nextDay = ()=>{
+        const tomorrow = new Date();
+
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(9);
+        tomorrow.setMinutes(0);
+        tomorrow.setMilliseconds(0);
+
+        return tomorrow;
+    }
+
     render(){
-        
+
         return (
             <section id="choose-date-section">
                 <section>
@@ -68,6 +79,7 @@ export default class ChooseDate extends React.Component{
                         calendarType={"US"}
                         tileClassName="calendar-tile"
                         className="calendar"
+                        minDate={this.nextDay()}
                         value={this.state.date} onChange={this.handleDate}/>
 
                     <section>
