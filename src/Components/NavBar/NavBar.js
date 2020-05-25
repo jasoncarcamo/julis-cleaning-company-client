@@ -231,7 +231,7 @@ export default class NavBar extends React.Component{
 
                         <ul id="social-bar">
                             <li>
-                                <FontAwesomeIcon className="social-bar-icon" icon={faFacebookF}/>
+                                <a href="https://facebook.com/juliscleaningcompany" target="_blank"><FontAwesomeIcon className="social-bar-icon" icon={faFacebookF}/></a>
                             </li>
 
                             <li>

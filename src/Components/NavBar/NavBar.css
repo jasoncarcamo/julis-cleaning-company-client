@@ -234,6 +234,10 @@ header{
     padding: 0;
 }
 
+#social-bar li *{
+    color: black;
+}
+
 .social-bar-icon{
     font-size: .9em;
     cursor: pointer;
