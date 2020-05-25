@@ -25,7 +25,7 @@ export default class SixthSection extends React.Component{
             loading: true
         });
 
-        fetch("http://localhost:8000/api/subscribe", {
+        fetch("https://vast-atoll-11346.herokuapp.com/api/subscribe", {
             method: "POST",
             headers: {
                 'content-type': "application/json"
@@ -42,7 +42,7 @@ export default class SixthSection extends React.Component{
                 return res.json();
             })
             .then( resData => {
-                
+
                 this.setState({
                     loading: false,
                     success: true,

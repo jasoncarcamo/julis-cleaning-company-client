@@ -21,7 +21,7 @@ export class UserBookingsProvider extends React.Component{
     componentDidMount(){
         
         if(UserToken.hasToken()){
-            fetch("http://localhost:8000/api/bookings", {
+            fetch("https://vast-atoll-11346.herokuapp.com/api/bookings", {
             headers: {
                 'content-type': "application/json",
                 'authorization': `bearer ${UserToken.getToken()}`

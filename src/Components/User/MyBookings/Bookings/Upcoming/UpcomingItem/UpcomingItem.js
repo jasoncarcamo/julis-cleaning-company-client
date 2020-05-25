@@ -35,7 +35,7 @@ export default class UpcomingItem extends React.Component{
         }
         else if (OneDay < new Date(this.props.book.date)) {
             // The yourDate time is more than 1 days from now
-            
+
             return true;
         }
     }
@@ -90,7 +90,7 @@ export default class UpcomingItem extends React.Component{
             loading: true
         })
         
-        fetch(`http://localhost:8000/api/bookings/${this.props.book.id}`, {
+        fetch(`https://vast-atoll-11346.herokuapp.com/api/bookings/${this.props.book.id}`, {
             method: "DELETE",
             headers: {
                 'content-type': "application/json",

@@ -29,7 +29,7 @@ export default class ContactForm extends React.Component{
             loading: true
         });
 
-        fetch("http://localhost:8000/api/contact", {
+        fetch("https://vast-atoll-11346.herokuapp.com/api/contact", {
             method: "POST",
             headers: {
                 'content-type': "application/json"

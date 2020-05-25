@@ -19,7 +19,7 @@ export class UserProvider extends React.Component{
 
     componentDidMount(){
         if(UserToken.hasToken()){
-            return fetch("http://localhost:8000/api/user", {
+            return fetch("https://vast-atoll-11346.herokuapp.com/api/user", {
                 headers: {
                     'content-type': "application/json",
                     'authorization': `bearer ${UserToken.getToken()}`
@@ -63,7 +63,7 @@ export class UserProvider extends React.Component{
             user: this.state.user,
             refreshUserContext: this.refreshUserContext
         };
-        
+
         return(
             <UserContext.Provider value={value}>
                 {this.props.children}

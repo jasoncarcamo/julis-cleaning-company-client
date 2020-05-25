@@ -38,7 +38,7 @@ export default class SignUp extends React.Component{
             error: ""
         })
 
-        fetch("http://localhost:8000/api/register", {
+        fetch("https://vast-atoll-11346.herokuapp.com/api/register", {
             method: "POST",
             headers: {
                 'content-type': "application/json"
