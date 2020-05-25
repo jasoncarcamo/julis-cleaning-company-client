@@ -5,6 +5,7 @@ import ChooseDate from "./ChooseDate/ChooseDate";
 import ConfirmInfo from "./ConfirmInfo/ConfirmInfo";
 import BookedSuccess from "./BookedSuccess/BookedSuccess";
 import UserBookingsContext from "../../Context/UserBookingsContext/UserBookingsContext";
+import UserToken from "../../Services/UserToken/UserToken";
 
 export default class Book extends React.Component{
     constructor(props){
@@ -34,7 +35,11 @@ export default class Book extends React.Component{
             this.setState({
                 screenWidth: window.innerWidth
             });
-        })
+        });
+
+        if(!UserToken.hasToken()){
+            this.props.history.push("/signup")
+        }
     }
 
     setInfo = (info)=>{
@@ -103,7 +108,7 @@ export default class Book extends React.Component{
     }
 
     render(){
-        
+
         return (
             <section id="book-section">
                 {this.state.chooseDate && !this.state.success ? <ChooseDate setInfo={this.setInfo} chooseData={this.state.chooseDate}
