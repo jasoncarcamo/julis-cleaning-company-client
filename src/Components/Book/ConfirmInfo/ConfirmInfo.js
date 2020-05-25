@@ -83,7 +83,7 @@ export default class ConfirmInfo extends React.Component{
                                 <textarea 
                                     id="confirm-info-message" 
                                     name="message" 
-                                    placeholder="Add Your Message"
+                                    placeholder="What are you looking to get done?"
                                     value={this.state.message}
                                     onChange={this.handleInput}/>
                                 <span>* Required</span>
