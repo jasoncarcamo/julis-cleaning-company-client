@@ -103,7 +103,7 @@ export default class Book extends React.Component{
     }
 
     render(){
-        console.log(this.state);
+        
         return (
             <section id="book-section">
                 {this.state.chooseDate && !this.state.success ? <ChooseDate setInfo={this.setInfo} chooseData={this.state.chooseDate}

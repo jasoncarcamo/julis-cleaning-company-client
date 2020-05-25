@@ -34,7 +34,8 @@ export default class SignUp extends React.Component{
         e.preventDefault();
 
         this.setState({
-            loading: true
+            loading: true,
+            error: ""
         })
 
         fetch("http://localhost:8000/api/register", {
@@ -58,7 +59,7 @@ export default class SignUp extends React.Component{
                 return res.json();
             })
             .then( resData => {
-                console.log(resData);
+
                 this.setState({
                     first_name: "",
                     last_name: "",
@@ -70,6 +71,8 @@ export default class SignUp extends React.Component{
                 });
 
                 UserToken.saveToken(resData.token);
+
+                this.props.history.push("/user")
             })
             .catch( err => this.setState({
                 error: err.error,
@@ -161,7 +164,7 @@ export default class SignUp extends React.Component{
 
                         <p>{this.state.error ? this.state.error : ""}</p>
 
-                        <button id="signup-submit" type="submit">Sign Up</button>
+                        {this.state.loading ? <p>Loading...</p> : <button id="signup-submit" type="submit">Sign Up</button>}
                     </fieldset>
                 </form>
             </section>

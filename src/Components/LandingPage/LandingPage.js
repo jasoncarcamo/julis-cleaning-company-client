@@ -12,12 +12,11 @@ export default class LandingPage extends React.Component{
 
         return (
             <section>
-                <FirstSection/>
-                <SecondSection/>
-                <ThirdSection/>
-                <FourthSection/>
-
-                <SixthSection/>
+                <FirstSection history={this.props.history}/>
+                <SecondSection history={this.props.history}/>
+                <ThirdSection history={this.props.history}/>
+                <FourthSection history={this.props.history}/>
+                <SixthSection history={this.props.history}/>
             </section>
         )
     }

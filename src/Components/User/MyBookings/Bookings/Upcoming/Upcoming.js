@@ -16,9 +16,9 @@ export default class Upcoming extends React.Component{
         let minutes = Number(newTime[1].split(" ")[0]);
         let hourType = newTime[1].split(" ")[1];
 
-        if(hourType == "PM" && hours < 12){
+        if(hourType === "PM" && hours < 12){
             hours += 12;
-        } else if( hourType == "AM" && hours == 12){
+        } else if( hourType === "AM" && hours === 12){
             hours = Number("00");
         };
 
@@ -30,7 +30,7 @@ export default class Upcoming extends React.Component{
     renderItems = ()=>{
         let bookings = this.props.bookings;
 
-        if(bookings.length == 0){
+        if(bookings.length === 0){
             return (
                 <li id="no-upcoming">
                     <p>You've got nothing booked at the moment.</p>
@@ -46,7 +46,7 @@ export default class Upcoming extends React.Component{
 
         bookings = bookings.map((book, index)=>{
 
-            if(new Date(book.date).toDateString() == new Date().toDateString()){
+            if(new Date(book.date).toDateString() === new Date().toDateString()){
                 return <UpcomingItem key={index} book={book}/>;
             };
 
@@ -58,7 +58,7 @@ export default class Upcoming extends React.Component{
 
         bookings = bookings.filter(( book) => book !== undefined);
 
-        if(bookings.length == 0){
+        if(bookings.length === 0){
             return (
                 <li id="no-upcoming">
                     <p>You've got nothing booked at the moment.</p>
@@ -72,7 +72,7 @@ export default class Upcoming extends React.Component{
     }
 
     render(){
-        console.log(this.props);
+
         return (
             <ul id="upcoming-bookings-container">
                 {this.renderItems()}

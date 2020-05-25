@@ -146,7 +146,7 @@ export default class NavBar extends React.Component{
         navSection.classList.remove("display-nav-bar");
         navSection.classList.add("hide-nav-bar");
 
-        this.props.histoy.push("/");
+        this.props.history.push("/");
     }
 
     handleLogoff = (e)=>{
@@ -164,7 +164,7 @@ export default class NavBar extends React.Component{
     }
 
     render(){
-        console.log(this.state)
+
         return(
             <header>
                 <nav id="nav-bar">

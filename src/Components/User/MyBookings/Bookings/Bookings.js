@@ -31,7 +31,7 @@ export default class Bookings extends React.Component{
     }
 
     render(){
-        console.log(this.context)
+        
         return(
             <section id="user-bookings">
                 <section id="bookings-options-header">

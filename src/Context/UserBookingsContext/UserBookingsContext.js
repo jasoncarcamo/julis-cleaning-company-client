@@ -19,29 +19,32 @@ export class UserBookingsProvider extends React.Component{
     }
     
     componentDidMount(){
-        fetch("http://localhost:8000/api/bookings", {
+        
+        if(UserToken.hasToken()){
+            fetch("http://localhost:8000/api/bookings", {
             headers: {
                 'content-type': "application/json",
                 'authorization': `bearer ${UserToken.getToken()}`
             }
-        })
-            .then( res => {
-                if(!res.ok){
-                    return res.json().then( e => Promise.reject(e));
-                };
-
-                return res.json();
             })
-            .then( resData => {
-                
-                this.setState({
-                    bookings: resData.bookings
-                });
+                .then( res => {
+                    if(!res.ok){
+                        return res.json().then( e => Promise.reject(e));
+                    };
 
-            })
-            .catch( err => this.setState({
-                error: err.error
-            }))
+                    return res.json();
+                })
+                .then( resData => {
+                    
+                    this.setState({
+                        bookings: resData.bookings
+                    });
+
+                })
+                .catch( err => this.setState({
+                    error: err.error
+                }));
+        }
     };
 
     completeBooking = (newBookings)=>{
@@ -55,7 +58,7 @@ export class UserBookingsProvider extends React.Component{
     }
 
     deleteBook = (id)=>{
-        console.log(id);
+
         let bookings = this.state.bookings;
         let oldBookings = this.state.bookings;
         let index;
@@ -63,8 +66,6 @@ export class UserBookingsProvider extends React.Component{
         bookings = bookings.filter( book => book.id === id);
 
         index = oldBookings.indexOf(bookings[0]);
-
-        console.log(oldBookings);
 
         oldBookings.splice(index, 1);
 
@@ -81,7 +82,7 @@ export class UserBookingsProvider extends React.Component{
             completeBooking: this.completeBooking,
             deleteBook: this.deleteBook
         };
-        console.log(this.state)
+
         return (
             <UserBookingsContext.Provider value={value}>
                 {this.props.children}

@@ -15,7 +15,9 @@ export default class FirstSection extends React.Component{
 
                         <p>Let Us Work While You Unwind</p>
 
-                        <button id="get-started-btn">Get Started</button>
+                        <button 
+                            id="get-started-btn"
+                            onClick={()=> this.props.history.push("/book")}>Get Started</button>
                     </div>
                 </section>
 

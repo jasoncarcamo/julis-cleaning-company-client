@@ -51,7 +51,8 @@ export default class BookSteps extends React.Component{
         let newBookings = {...this.props.info, ...this.props.contactInfo};
 
         this.setState({
-            submitting: true
+            submitting: true,
+            error: ""
         });
 
         fetch("http://localhost:8000/api/bookings", {
@@ -72,7 +73,7 @@ export default class BookSteps extends React.Component{
                 return res.json();
             })
             .then( resData => {
-                console.log(resData);
+
                 this.props.resetInfo();
                 
                 this.setState({
@@ -99,11 +100,13 @@ export default class BookSteps extends React.Component{
     };
 
     render(){
-        console.log(this.state)
+        console.log(this.props)
         return (
             <section id="book-steps-section">
                 <p>Set for: {this.props.info.date.toDateString()}</p>
                 <p>Best time: {this.props.info.time? this.props.info.time : "Choose the best time that works for you."}</p>
+
+                <p>Message for us: {this.props.contactInfo.message}</p>
 
                 <p className="book-steps-section-error">{this.state.error ? this.state.error : ""}</p>
 

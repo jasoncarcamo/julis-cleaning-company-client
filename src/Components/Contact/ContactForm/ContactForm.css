@@ -50,7 +50,16 @@
     padding: 1em 0 0 1em;
 }
 
-#contact-form-submit{
+#contact-form p {
+    width: 80%;
+    text-align: center;
+}
+
+#contact-successful-section{
+    width: 90%;
+}
+
+#contact-form button{
     display: block;
     width: 80%;
     height: 3em;
@@ -87,10 +96,15 @@
     }
     
     #contact-form-info p{
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         padding: 0;
-        width: 90%;
+        text-align: center;
+    }
+
+    #contact-form p {
+        width: 80%;
+        margin: 0 auto;
         text-align: center;
     }
     
@@ -128,7 +142,7 @@
         padding: 1em 0 0 1em;
     }
     
-    #contact-form-submit{
+    #contact-form button{
         display: block;
         width: 80%;
         height: 3em;

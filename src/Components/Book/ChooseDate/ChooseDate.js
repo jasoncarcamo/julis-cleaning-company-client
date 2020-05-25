@@ -58,7 +58,7 @@ export default class ChooseDate extends React.Component{
     }
 
     render(){
-        console.log(this.state)
+        
         return (
             <section id="choose-date-section">
                 <section>

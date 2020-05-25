@@ -16,9 +16,9 @@ export default class History extends React.Component{
         let minutes = Number(newTime[1].split(" ")[0]);
         let hourType = newTime[1].split(" ")[1];
 
-        if(hourType == "PM" && hours < 12){
+        if(hourType === "PM" && hours < 12){
             hours += 12;
-        } else if( hourType == "AM" && hours == 12){
+        } else if( hourType === "AM" && hours === 12){
             hours = Number("00");
         };
 
@@ -30,7 +30,7 @@ export default class History extends React.Component{
     renderItems = ()=>{
         let bookings = this.props.bookings;
 
-        if(bookings.length == 0){
+        if(bookings.length === 0){
             return (
                 <li id="no-history">
                     <p>We’re looking forward to meeting you.</p>

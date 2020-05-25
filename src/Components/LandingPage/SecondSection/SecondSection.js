@@ -14,7 +14,8 @@ export default class SecondSection extends React.Component{
 
                 <p>Our experts provide detailed cleaning services for our valued customers, designed to keep your property looking its best all year round. We offer different cleaning frequencies according to your needs and preferences, including every week, every two weeks, monthly, and occasional or one-time cleans.</p>
 
-                <button id="second-section-contact-btn">Contact Us</button>
+                <button id="second-section-contact-btn"
+                onClick={()=>this.props.history.push("/contact")}>Contact Us</button>
             </section>
         )
     }

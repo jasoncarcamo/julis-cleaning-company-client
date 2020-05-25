@@ -28,7 +28,8 @@ export default class ThirdSection extends React.Component{
                     </section>
                 </div>
 
-                <button id="third-section-book-btn">Book a Consultation</button>
+                <button id="third-section-book-btn"
+                onClick={() => this.props.history.push("/book")}>Request Quote</button>
             </section>
         )
     }

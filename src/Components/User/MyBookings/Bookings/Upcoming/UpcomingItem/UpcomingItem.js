@@ -30,14 +30,12 @@ export default class UpcomingItem extends React.Component{
         
         if (OneDay > new Date(this.props.book.date).getTime()) {
             // The yourDate time is less than 1 days from now
-            console.log(false);
-            console.log(OneDay, new Date(this.props.book.date).getTime())
+            
             return false;
         }
         else if (OneDay < new Date(this.props.book.date)) {
             // The yourDate time is more than 1 days from now
-            console.log(true);
-            console.log(OneDay, new Date(this.props.book.date).getTime())
+            
             return true;
         }
     }
