@@ -50,7 +50,9 @@ export class UserProvider extends React.Component{
             this.setState({
                 user: {},
                 error: ""
-            })
+            });
+
+            return false;
         }
     }
 

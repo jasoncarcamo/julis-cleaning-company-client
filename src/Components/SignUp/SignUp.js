@@ -60,19 +60,12 @@ export default class SignUp extends React.Component{
             })
             .then( resData => {
 
-                this.setState({
-                    first_name: "",
-                    last_name: "",
-                    email: "",
-                    mobile_number: "",
-                    password: "",
-                    confirmPassword: "",
-                    error: ""
-                });
-
                 UserToken.saveToken(resData.token);
 
-                this.props.history.push("/user")
+                this.context.refreshUserContext( loggedIn => {
+                    this.props.history.push("/user")
+                });
+                
             })
             .catch( err => this.setState({
                 error: err.error,
