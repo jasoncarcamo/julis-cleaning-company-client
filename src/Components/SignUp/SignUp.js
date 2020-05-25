@@ -2,6 +2,7 @@ import React from "react";
 import "./SignUp.css";
 import {NavLink} from "react-router-dom";
 import UserToken from "../../Services/UserToken/UserToken";
+import UserContext from "../../Context/UserContext/UserContext";
 
 export default class SignUp extends React.Component{
     constructor(props){
@@ -17,6 +18,8 @@ export default class SignUp extends React.Component{
             error: ""
         }
     };
+
+    static contextType = UserContext;
 
     componentDidMount(){
         if(UserToken.hasToken()){
@@ -36,7 +39,7 @@ export default class SignUp extends React.Component{
         this.setState({
             loading: true,
             error: ""
-        })
+        });
 
         fetch("https://vast-atoll-11346.herokuapp.com/api/register", {
             method: "POST",
@@ -62,9 +65,10 @@ export default class SignUp extends React.Component{
 
                 UserToken.saveToken(resData.token);
 
-                this.context.refreshUserContext( loggedIn => {
-                    this.props.history.push("/user")
-                });
+                this.context.refreshUserContext()
+                    .then( isLoggedIn => {
+                        this.props.history.push("/user");
+                    })
                 
             })
             .catch( err => this.setState({

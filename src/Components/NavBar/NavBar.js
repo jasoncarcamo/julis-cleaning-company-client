@@ -75,6 +75,7 @@ export default class NavBar extends React.Component{
         window.addEventListener("scroll", (e)=>{
             let currentYOffset = window.pageYOffset;
 
+            console.log(header)
             if(currentYOffset < prevYOffset){
                 header[0].classList.add("show-header");
                 header[0].classList.remove("hide-header");
