@@ -36,10 +36,6 @@ export default class Book extends React.Component{
                 screenWidth: window.innerWidth
             });
         });
-
-        if(!UserToken.hasToken()){
-            this.props.history.push("/signup")
-        }
     }
 
     setInfo = (info)=>{
@@ -101,6 +97,14 @@ export default class Book extends React.Component{
 
     }
 
+    isGuestSuccessful = (newBooking)=>{
+
+        this.setState({
+            success: true
+        });
+
+    }
+
     handleDone = ()=>{
         this.setState({
             success: false
@@ -130,7 +134,8 @@ export default class Book extends React.Component{
                     handleNextStep={this.handleNextStep}
                     handleBackStep={this.handleBackStep}
                     resetInfo={this.resetInfo}
-                    isSuccessful={this.isSuccessful}/> : <BookedSuccess handleDone={this.handleDone}/>}
+                    isSuccessful={this.isSuccessful}
+                    isGuestSuccessful={this.isGuestSuccessful}/> : <BookedSuccess handleDone={this.handleDone}/>}
                 
             </section>
         )

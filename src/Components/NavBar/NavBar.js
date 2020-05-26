@@ -36,7 +36,7 @@ export default class NavBar extends React.Component{
 
         if(this.state.screenWidth > 770){
             return;
-        }
+        };
 
         button.classList.toggle("is-active");
 
@@ -75,7 +75,6 @@ export default class NavBar extends React.Component{
         window.addEventListener("scroll", (e)=>{
             let currentYOffset = window.pageYOffset;
 
-            console.log(header)
             if(currentYOffset < prevYOffset){
                 header[0].classList.add("show-header");
                 header[0].classList.remove("hide-header");
@@ -146,8 +145,6 @@ export default class NavBar extends React.Component{
 
         navSection.classList.remove("display-nav-bar");
         navSection.classList.add("hide-nav-bar");
-
-        this.props.history.push("/");
     }
 
     handleLogoff = (e)=>{
@@ -157,7 +154,10 @@ export default class NavBar extends React.Component{
         this.context.refreshUserContext()
             .then( refreshed =>{
                 this.handleAccountOpt();
-            });
+
+                this.props.history.push("/");
+                
+;            });
     }
 
     toHome = (e)=>{

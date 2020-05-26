@@ -23,7 +23,7 @@ export default class BookSteps extends React.Component{
         return (
             <div>
                 <button onClick={this.props.handleBackStep}>Back</button>
-                <button onClick={this.handleForm}>Book It</button>
+                <button onClick={!UserToken.hasToken() ? this.handleGuestForm : this.handleForm}>Book It</button>
             </div>
         )
     }
@@ -40,14 +40,14 @@ export default class BookSteps extends React.Component{
         return (
             <div>
                 <button onClick={this.goBack}>Back</button>
-                <button onClick={this.handleForm}>Book It</button>
+                <button onClick={!UserToken.hasToken() ? this.handleGuestForm : this.handleForm}>Book It</button>
             </div>
         )
     };
 
     handleForm = (e)=>{
         e.preventDefault();
-
+        
         let newBookings = {...this.props.info, ...this.props.contactInfo};
 
         this.setState({
@@ -91,6 +91,54 @@ export default class BookSteps extends React.Component{
             }));
     }
 
+    handleGuestForm = (e)=>{
+        e.preventDefault();
+
+        let newBookings = {...this.props.info, ...this.props.contactInfo};
+
+        this.setState({
+            submitting: true,
+            error: ""
+        });
+
+        fetch("https://vast-atoll-11346.herokuapp.com/api/bookings/guest", {
+            method: "POST",
+            headers: {
+                'content-type': "application/json",
+            },
+            body: JSON.stringify(newBookings)
+        })
+            .then( res => {
+                
+                if(!res.ok){
+
+                    return res.json().then( e => Promise.reject(e));
+                };
+
+                return res.json();
+            })
+            .then( resData => {
+
+                this.props.resetInfo();
+                
+                this.setState({
+                    submitting: false,
+                    completed: false
+                });
+
+                this.props.isGuestSuccessful(resData.createdBookings);
+                
+            })
+            .catch( err => {
+                
+                this.setState({
+                    error: err.error,
+                    submitting: false,
+                    completed: false
+                })
+            });
+    }
+
     renderLoading = ()=>{
         return (
             <div>
@@ -100,7 +148,7 @@ export default class BookSteps extends React.Component{
     };
 
     render(){
-        console.log(this.props)
+        
         return (
             <section id="book-steps-section">
                 <p>Set for: {this.props.info.date.toDateString()}</p>
@@ -109,6 +157,8 @@ export default class BookSteps extends React.Component{
                 <p>Message for us: {this.props.contactInfo.message}</p>
 
                 <p className="book-steps-section-error">{this.state.error ? this.state.error : ""}</p>
+
+                {this.state.submitting ? <p>Loading...</p> : ""}
 
                 {this.props.info.time && this.props.chooseData ? <button onClick={this.props.handleNextStep}>Next</button> : ""}
                 {this.props.confirmInfo && !this.props.chooseData && !this.state.submitting ? this.renderDirectionButtons() : ""}
