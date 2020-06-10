@@ -2,13 +2,14 @@
     position: fixed;
     right: 0;
     top: 50%;
-    width: 14em;
+    width: 18em;
     min-height: 21em;
     transform: translateY(-50%);
     z-index: 1;
     border-radius: .4em;
     box-shadow: .25em .5em 1em grey;
     padding-bottom: 3em;
+    background-color: white;
 }
 
 .book-steps-section-error{

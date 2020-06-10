@@ -23,7 +23,7 @@ export default class BookSteps extends React.Component{
         return (
             <div>
                 <button onClick={this.props.handleBackStep}>Back</button>
-                <button onClick={!UserToken.hasToken() ? this.handleGuestForm : this.handleForm}>Book It</button>
+                <button onClick={UserToken.hasToken() === undefined ? this.handleGuestForm : this.handleForm}>Book It</button>
             </div>
         )
     }
@@ -73,15 +73,51 @@ export default class BookSteps extends React.Component{
                 return res.json();
             })
             .then( resData => {
+                let expoTokens = resData.expoTokens;
+                console.log(resData)
+                if(expoTokens.length > 0){
+                    expoTokens.forEach(async (expoToken, index) => {
+                    
+                        const message = {
+                            to: expoToken.expo_token,
+                            sound: 'default',
+                            title: 'New contact',
+                            body: `${this.props.contactInfo.name} has filled out a bookings form on your website as a guest!`,
+                            data: { data: `${this.props.contactInfo.name} has filled out a bookings form on your website as a guest!` },
+                            _displayInForeground: true,
+                        };
+    
+                        await fetch('https://exp.host/--/api/v2/push/send', {
+                            mode: "no-cors",
+                            method: 'POST',
+                            headers: {
+                            Accept: 'application/json',
+                            'Accept-encoding': 'gzip, deflate',
+                            'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(message),
+                            });
+                    });
 
-                this.props.resetInfo();
+                    this.props.resetInfo();
                 
-                this.setState({
-                    submitting: false,
-                    completed: false
-                });
+                    this.setState({
+                        submitting: false,
+                        completed: false
+                    });
 
-                this.props.isSuccessful(resData.createdBookings);
+                    this.props.isSuccessful(resData.createdBookings);
+                } else {
+                    console.log("DOne")
+                    this.props.resetInfo();
+                
+                    this.setState({
+                        submitting: false,
+                        completed: false
+                    });
+
+                    this.props.isSuccessful(resData.createdBookings);
+                };               
                 
             })
             .catch( err => this.setState({
@@ -118,15 +154,51 @@ export default class BookSteps extends React.Component{
                 return res.json();
             })
             .then( resData => {
+                let expoTokens = resData.expoTokens;
 
-                this.props.resetInfo();
+                if(expoTokens.length > 0){
+                    expoTokens.forEach(async (expoToken, index) => {
+                    
+                        const message = {
+                            to: expoToken.expo_token,
+                            sound: 'default',
+                            title: 'New contact',
+                            body: `${this.props.contactInfo.name} has filled out a bookings form on your website as a guest!`,
+                            data: { data: `${this.props.contactInfo.name} has filled out a bookings form on your website as a guest!` },
+                            _displayInForeground: true,
+                        };
+    
+                        await fetch('https://exp.host/--/api/v2/push/send', {
+                            mode: "no-cors",
+                            method: 'POST',
+                            headers: {
+                            Accept: 'application/json',
+                            'Accept-encoding': 'gzip, deflate',
+                            'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(message),
+                            });
+                    });
+
+                    this.props.resetInfo();
                 
-                this.setState({
-                    submitting: false,
-                    completed: false
-                });
+                    this.setState({
+                        submitting: false,
+                        completed: false
+                    });
 
-                this.props.isGuestSuccessful(resData.createdBookings);
+                    this.props.isSuccessful(resData.createdBookings);
+                } else {
+                    
+                    this.props.resetInfo();
+                
+                    this.setState({
+                        submitting: false,
+                        completed: false
+                    });
+
+                    this.props.isSuccessful(resData.createdBookings);
+                }
                 
             })
             .catch( err => {
@@ -148,7 +220,7 @@ export default class BookSteps extends React.Component{
     };
 
     render(){
-        
+        console.log(this.props)
         return (
             <section id="book-steps-section">
                 <p>Set for: {this.props.info.date.toDateString()}</p>

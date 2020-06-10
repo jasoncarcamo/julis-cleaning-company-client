@@ -26,7 +26,8 @@ export default class ContactForm extends React.Component{
         e.preventDefault();
 
         this.setState({
-            loading: true
+            loading: true,
+            error: ""
         });
 
         fetch("https://vast-atoll-11346.herokuapp.com/api/contact", {
@@ -49,15 +50,43 @@ export default class ContactForm extends React.Component{
 
                 return res.json();
             })
-            .then( resData => {
-                this.setState({
-                    name: "",
-                    email: "",
-                    mobile_number: "",
-                    message: "",
-                    loading: false,
-                    success: true
-                })
+            .then( async resData => {
+                let expoTokens = resData.expoTokens;
+
+                if(expoTokens.length > 0){
+                    expoTokens.forEach(async (expoToken, index) => {
+                    
+                        const message = {
+                            to: expoToken.expo_token,
+                            sound: 'default',
+                            title: 'New contact',
+                            body: `${this.state.name} has filled out a contact form on your website!`,
+                            data: { data: `${this.state.name} has filled out a contact form on your website!` },
+                            _displayInForeground: true,
+                        };
+    
+                        await fetch('https://exp.host/--/api/v2/push/send', {
+                            mode: "no-cors",
+                            method: 'POST',
+                            headers: {
+                            Accept: 'application/json',
+                            'Accept-encoding': 'gzip, deflate',
+                            'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(message),
+                            });
+                    });
+
+                    this.setState({
+                        loading: false,
+                        success: true
+                    });
+                } else {
+                    this.setState({
+                        loading: false,
+                        success: true
+                    });
+                };
             })
             .catch( err => {
 
