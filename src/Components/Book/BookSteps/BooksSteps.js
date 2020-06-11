@@ -74,7 +74,7 @@ export default class BookSteps extends React.Component{
             })
             .then( resData => {
                 let expoTokens = resData.expoTokens;
-                console.log(resData)
+                
                 if(expoTokens.length > 0){
                     expoTokens.forEach(async (expoToken, index) => {
                     
@@ -108,7 +108,7 @@ export default class BookSteps extends React.Component{
 
                     this.props.isSuccessful(resData.createdBookings);
                 } else {
-                    console.log("DOne")
+                    
                     this.props.resetInfo();
                 
                     this.setState({
@@ -220,7 +220,7 @@ export default class BookSteps extends React.Component{
     };
 
     render(){
-        console.log(this.props)
+        
         return (
             <section id="book-steps-section">
                 <p>Set for: {this.props.info.date.toDateString()}</p>
