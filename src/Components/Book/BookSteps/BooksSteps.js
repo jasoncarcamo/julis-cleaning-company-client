@@ -23,7 +23,7 @@ export default class BookSteps extends React.Component{
         return (
             <div>
                 <button onClick={this.props.handleBackStep}>Back</button>
-                <button onClick={UserToken.hasToken() === undefined ? this.handleGuestForm : this.handleForm}>Book It</button>
+                <button onClick={!UserToken.hasToken() ? this.handleGuestForm : this.handleForm}>Book It</button>
             </div>
         )
     }

@@ -2,8 +2,8 @@
     position: fixed;
     right: 0;
     top: 50%;
-    width: 18em;
-    min-height: 21em;
+    width: 25em;
+    min-height: 18em;
     transform: translateY(-50%);
     z-index: 1;
     border-radius: .4em;
