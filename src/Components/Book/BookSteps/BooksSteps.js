@@ -223,10 +223,10 @@ export default class BookSteps extends React.Component{
         
         return (
             <section id="book-steps-section">
-                <p>Set for: {this.props.info.date.toDateString()}</p>
-                <p>Best time: {this.props.info.time? this.props.info.time : "Choose the best time that works for you."}</p>
+                <p><strong>Date:</strong> {this.props.info.date.toDateString()}</p>
+                <p><strong>Time: </strong>{this.props.info.time? this.props.info.time : "Choose the best time that works for you."}</p>
 
-                <p>Message for us: {this.props.contactInfo.message}</p>
+                <p><strong>Special request(s):</strong> {this.props.contactInfo.message}</p>
 
                 <p className="book-steps-section-error">{this.state.error ? this.state.error : ""}</p>
 

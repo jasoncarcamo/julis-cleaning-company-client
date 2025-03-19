@@ -9,7 +9,7 @@
     margin: 0 1em;
 }
 
-@media screen and (max-width: 770px){
+@media screen and (max-width: 1300px){
     #book-section{
         display: grid;
         grid-template: auto auto / 1fr;

@@ -18,7 +18,7 @@
     "react-time-picker": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "deploy": "now ./build && now --prod -A ./build/now.json",
     "test": "react-scripts test",

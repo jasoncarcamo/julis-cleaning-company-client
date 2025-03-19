@@ -54,7 +54,7 @@
     min-height: 100%;
 }
 
-@media screen and (max-width: 770px){
+@media screen and (max-width: 1300px){
     #first-section{
         display: flex;
         flex-direction: column-reverse;

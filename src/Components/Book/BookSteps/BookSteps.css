@@ -1,9 +1,10 @@
 #book-steps-section{
-    position: fixed;
-    right: 0;
+    position: relative;
+    left: 1em;
     top: 50%;
     width: 25em;
-    min-height: 18em;
+    max-height: 18em;
+    height: auto;
     transform: translateY(-50%);
     z-index: 1;
     border-radius: .4em;
@@ -62,12 +63,12 @@
     margin-bottom: 1em;
 }
 
-@media screen and (max-width: 770px){
+@media screen and (max-width: 1300px){
     #book-steps-section{
         display: none;
         border: 1px solid black;
         position: unset;
-        max-width: 770px;
+        max-width: 1300px;
         width: 80%;
         margin: 1em auto 3em auto !important;
         min-height: 16em;

@@ -40,6 +40,7 @@
 #confirm-info-fieldset{
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     border: none;
@@ -47,12 +48,13 @@
 
 #confirm-info-fieldset div{
     display: flex;
+    width: 12em;
     flex-direction: column;
     margin: 1.75em auto;
 }
 
 #confirm-info-fieldset input{
-    min-width: 90%;
+    display: block;
     height: 3em;
     margin: 0 auto !important;
     padding-left: 1.5em;
@@ -72,7 +74,7 @@
 }
 
 #confirm-info-fieldset span{
-    min-width: 90%;
+    width: 12em;
     margin: 0 auto;
 }
 
@@ -91,7 +93,7 @@
     margin: 0 auto;
 }
 
-@media screen and (max-width: 770px){
+@media screen and (max-width: 1300px){
     #confirm-info-section{
         padding: 0 0 !important;
     }
@@ -133,7 +135,6 @@
     }
     
     #confirm-info-fieldset input{
-        width: 50%;
         height: 2.9em;
         margin: .5em 0 0 0;
     }
