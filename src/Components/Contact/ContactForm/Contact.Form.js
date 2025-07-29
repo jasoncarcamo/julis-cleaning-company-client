@@ -125,11 +125,9 @@ export default class ContactForm extends React.Component{
             <section id="contact-form-container">
                 <section id="contact-form-info">
                     <h3>Feel free to reach out for any questions</h3>
-
-                    <p>2 Madison ave</p>
                     <p>Amityville, Ny, 11701</p>
-                    <p>Jay'scleaningcompany@gmail.com​</p>
-                    <p>(631) 526-3306</p>
+                    <p>Jayscleaningcompany@email.com​</p>
+                    <p>(631) 123-1234</p>
                 </section>
                 
                 <form id="contact-form" onSubmit={this.handleSubmit} method="POST">
