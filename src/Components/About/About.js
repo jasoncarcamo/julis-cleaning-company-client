@@ -5,7 +5,7 @@ export default class About extends React.Component{
     render(){
         return (
             <section id="about-section">
-                <h3>Julis Cleaning Company</h3>
+                <h3>Jay's Cleaning Company</h3>
                 <h4>Committed to Keeping Your Home Squeaky Clean Since 2017</h4>
 
                 <p>We are a family-owned business that has begun creating an impact in the cleaning service industry.</p>

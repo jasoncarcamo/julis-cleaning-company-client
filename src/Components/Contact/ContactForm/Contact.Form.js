@@ -128,7 +128,7 @@ export default class ContactForm extends React.Component{
 
                     <p>2 Madison ave</p>
                     <p>Amityville, Ny, 11701</p>
-                    <p>juliscleaningcompany@gmail.com​</p>
+                    <p>Jay'scleaningcompany@gmail.com​</p>
                     <p>(631) 526-3306</p>
                 </section>
                 

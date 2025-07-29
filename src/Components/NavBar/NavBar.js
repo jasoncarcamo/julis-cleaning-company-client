@@ -179,7 +179,7 @@ export default class NavBar extends React.Component{
                         <section 
                             id="nav-bar-header"
                             onClick={this.toHome}>
-                            <h1>Julis Cleaning Company</h1>
+                            <h1>Jay's Cleaning Company</h1>
                             <p>HOME CLEANING PROFESSIONALS</p>
                         </section>
                     </section>
@@ -231,7 +231,7 @@ export default class NavBar extends React.Component{
 
                         <ul id="social-bar">
                             <li>
-                                <a href="https://facebook.com/juliscleaningcompany" target="_blank"><FontAwesomeIcon className="social-bar-icon" icon={faFacebookF}/></a>
+                                <a href="https://facebook.com/Jay'scleaningcompany" target="_blank"><FontAwesomeIcon className="social-bar-icon" icon={faFacebookF}/></a>
                             </li>
 
                             <li>
